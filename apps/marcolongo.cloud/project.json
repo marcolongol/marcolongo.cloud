@@ -54,7 +54,9 @@
           "buildTarget": "marcolongo.cloud:build:production"
         },
         "development": {
-          "buildTarget": "marcolongo.cloud:build:development"
+          "buildTarget": "marcolongo.cloud:build:development",
+          "host": "0.0.0.0",
+          "allowedHosts": ["*"]
         }
       },
       "defaultConfiguration": "development"
@@ -89,8 +91,9 @@
       "dependsOn": ["build"],
       "options": {
         "engine": "docker",
+        "target": "production",
         "metadata": {
-          "images": ["marcolongo.cloud"],
+          "images": ["ghcr.io/marcolongol/marcolongo.cloud-app"],
           "load": true,
           "tags": [
             "type=schedule",
@@ -101,6 +104,14 @@
             "type=semver,pattern={{major}}.{{minor}}",
             "type=semver,pattern={{major}}",
             "type=sha"
+          ],
+          "labels": [
+            "org.opencontainers.image.title=marcolongo.cloud",
+            "org.opencontainers.image.description=marcolongo.cloud",
+            "org.opencontainers.image.url=https://github.com/marcolongol/marcolongo.cloud",
+            "org.opencontainers.image.source=https://github.com/marcolongol/marcolongo.cloud",
+            "org.opencontainers.image.vendor=marcolongol",
+            "org.opencontainers.image.licenses=MIT"
           ]
         }
       }
