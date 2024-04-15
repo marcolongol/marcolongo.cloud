@@ -2,7 +2,12 @@
   "name": "@marcolongo.cloud/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx run-many --target=build --all",
+    "lint": "nx run-many --target=lint --all",
+    "start": "nx run-many --target=serve --all",
+    "start:web": "nx run marcolongo.cloud:serve:development"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~17.3.0",
