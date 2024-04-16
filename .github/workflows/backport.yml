@@ -9,8 +9,8 @@ on:
       - main
 
 permissions:
-  actions: read
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   backport:
@@ -20,10 +20,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run: git fetch origin main
-      - run: git checkout main
-      - run: git pull origin main
-      - run: git checkout develop
-      - run: git pull origin develop
-      - run: git merge main
-      - run: git push origin develop
+      - name: Set up Git
+        run: |
+          git config --global user.email "166586793+marcolongol-bot[bot]@users.noreply.github.com>"
+          git config --global user.name "marcolongol-bot"
+
+      - name: Backport main to develop
+        run: |
+          git fetch origin main
+          git checkout main
+          git pull origin main
+          git checkout develop
+          git pull origin develop
+          git merge main
+          git push origin develop
