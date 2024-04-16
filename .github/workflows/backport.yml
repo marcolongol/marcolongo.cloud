@@ -1,0 +1,36 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Backport main to develop
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  backport:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "166586793+marcolongol-bot[bot]@users.noreply.github.com"
+          git config --global user.name "marcolongol-bot"
+
+      - name: Backport main to develop
+        run: |
+          git fetch origin main
+          git checkout main
+          git pull origin main
+          git checkout develop
+          git pull origin develop
+          git merge main
+          git push origin develop
