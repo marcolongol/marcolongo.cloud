@@ -1,0 +1,30 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Backport main to develop
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  backport:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - run: git branch --track main origin/main
+      - run: git fetch origin main
+      - run: git checkout main
+      - run: git pull origin main
+      - run: git checkout develop
+      - run: git pull origin develop
+      - run: git merge main
+      - run: git push origin develop
