@@ -101,7 +101,7 @@
             "type=ref,event=tag",
             "type=ref,event=pr",
             "type=semver,pattern={{version}}",
-            "type=semver,pattern={{major}}.{{minor}}",
+            "type=semver,pattern={{major}.{minor}}",
             "type=semver,pattern={{major}}",
             "type=sha"
           ],
@@ -119,7 +119,26 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
+        "push": false,
         "preset": "conventionalcommits"
+      },
+      "configurations": {
+        "development": {
+          "postTargets": ["container"],
+          "releaseAs": "prerelease",
+          "preId": "dev"
+        },
+        "production": {
+          "releaseAs": "patch",
+          "postTargets": ["container", "github"]
+        }
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "{tag}",
+        "notes": "{notes}"
       }
     }
   }
