@@ -121,14 +121,15 @@
       "executor": "@jscutlery/semver:version",
       "options": {
         "push": true,
-        "preset": "conventionalcommits"
+        "preset": "conventionalcommits",
+        "trackDeps": true
       },
       "configurations": {
         "development": {
-          "releaseAs": "prerelease",
-          "preid": "dev"
+          "tagPrefix": "dev"
         },
         "production": {
+          "tagPrefix": "v",
           "postTargets": ["github"]
         }
       }
