@@ -1,4 +1,3 @@
-/* eslint-disable */
 export default {
   displayName: 'marcolongo.cloud',
   preset: '../../jest.preset.js',
