@@ -6,6 +6,12 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "plugins": ["unused-imports"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:import/recommended",
+        "plugin:unicorn/recommended"
+      ],
       "rules": {
         "@nx/enforce-module-boundaries": [
           "error",
@@ -19,7 +25,43 @@
               }
             ]
           }
+        ],
+        "import/no-extraneous-dependencies": "off",
+        "import/order": [
+          "error",
+          {
+            "alphabetize": {
+              "caseInsensitive": false,
+              "order": "asc"
+            },
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              ["parent", "sibling", "index"]
+            ],
+            "newlines-between": "always"
+          }
+        ],
+        "no-underscore-dangle": "off",
+        "unicorn/consistent-function-scoping": "off",
+        "unicorn/prefer-event-target": "off",
+        "no-unused-vars": "warn",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+          "warn",
+          {
+            "vars": "all",
+            "varsIgnorePattern": "^_",
+            "args": "after-used",
+            "argsIgnorePattern": "^_"
+          }
         ]
+      },
+      "settings": {
+        "import/resolver": {
+          "eslint-import-resolver-typescript": true
+        }
       }
     },
     {
