@@ -126,10 +126,10 @@
       },
       "configurations": {
         "development": {
-          "tagPrefix": "dev"
+          "tagPrefix": "marcolongo.cloud-dev"
         },
         "production": {
-          "tagPrefix": "v",
+          "tagPrefix": "marcolongo.cloud-v",
           "postTargets": ["github"]
         }
       }
