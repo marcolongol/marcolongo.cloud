@@ -10,6 +10,13 @@
     "prepare": "husky"
   },
   "private": true,
+  "browserslist": [
+    ">0.5%",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead",
+    "not IE 11"
+  ],
   "dependencies": {
     "@angular/animations": "~17.3.0",
     "@angular/common": "~17.3.0",
