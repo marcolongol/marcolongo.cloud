@@ -1,0 +1,137 @@
+{
+  "name": "marcolongo.cloud",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/marcolongo.cloud/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/marcolongo.cloud",
+        "index": "apps/marcolongo.cloud/src/index.html",
+        "browser": "apps/marcolongo.cloud/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/marcolongo.cloud/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/marcolongo.cloud/src/favicon.ico",
+          "apps/marcolongo.cloud/src/assets"
+        ],
+        "styles": ["apps/marcolongo.cloud/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "marcolongo.cloud:build:production"
+        },
+        "development": {
+          "buildTarget": "marcolongo.cloud:build:development",
+          "host": "0.0.0.0",
+          "allowedHosts": ["*"]
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "marcolongo.cloud:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/marcolongo.cloud/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "marcolongo.cloud:build",
+        "port": 4200,
+        "staticFilePath": "dist/apps/marcolongo.cloud/browser",
+        "spa": true
+      }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "dependsOn": ["build"],
+      "options": {
+        "engine": "docker",
+        "target": "production",
+        "push": true,
+        "metadata": {
+          "images": ["ghcr.io/marcolongol/marcolongo.cloud-app"],
+          "tags": [
+            "type=schedule",
+            "type=ref,event=branch",
+            "type=ref,event=tag",
+            "type=ref,event=pr",
+            "type=match,pattern=marcolongo.cloud-(.*),group=1",
+            "type=semver,pattern={{version}}",
+            "type=semver,pattern={{major}}.{{minor}}",
+            "type=semver,pattern={{major}}",
+            "type=sha"
+          ],
+          "labels": [
+            "org.opencontainers.image.title=marcolongo.cloud",
+            "org.opencontainers.image.description=marcolongo.cloud",
+            "org.opencontainers.image.url=https://github.com/marcolongol/marcolongo.cloud",
+            "org.opencontainers.image.source=https://github.com/marcolongol/marcolongo.cloud",
+            "org.opencontainers.image.vendor=marcolongol",
+            "org.opencontainers.image.licenses=MIT"
+          ]
+        }
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "configurations": {
+        "development": {
+          "tagPrefix": "marcolongo.cloud-dev",
+          "commitMessageFormat": "chore({projectName}-dev): release version {version}"
+        },
+        "production": {
+          "tagPrefix": "marcolongo.cloud-v",
+          "postTargets": ["github"]
+        }
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github"
+    }
+  }
+}
