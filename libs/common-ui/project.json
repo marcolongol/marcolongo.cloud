@@ -6,9 +6,24 @@
   "projectType": "library",
   "tags": [],
   "targets": {
+    "prebuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "bgColor": "bgBlack",
+            "color": "white",
+            "command": "echo Copying WebViewer files to test folder",
+            "description": "Copy WebViewer files to test folder"
+          },
+          "cp -r ./node_modules/@pdftron/webviewer/public/* ./libs/common-ui/src/assets/webviewer"
+        ]
+      }
+    },
     "build": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "dependsOn": ["prebuild"],
       "options": {
         "project": "libs/common-ui/ng-package.json"
       },

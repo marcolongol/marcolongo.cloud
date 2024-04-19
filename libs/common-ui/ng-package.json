@@ -3,5 +3,13 @@
   "dest": "../../dist/libs/common-ui",
   "lib": {
     "entryFile": "src/index.ts"
-  }
+  },
+  "assets": [
+    "CHANGELOG.md",
+    {
+      "glob": "**/*",
+      "input": "./src/assets",
+      "output": "/assets"
+    }
+  ]
 }
