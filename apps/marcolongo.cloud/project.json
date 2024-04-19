@@ -36,7 +36,11 @@
           }
         ],
         "styles": ["apps/marcolongo.cloud/src/styles.scss"],
-        "scripts": []
+        "scripts": [
+          {
+            "input": "./libs/common-ui/src/assets/webviewer/webviewer.min.js"
+          }
+        ]
       },
       "configurations": {
         "production": {
