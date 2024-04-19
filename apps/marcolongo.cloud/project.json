@@ -17,6 +17,9 @@
       ],
       "options": {
         "outputPath": "dist/apps/marcolongo.cloud",
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/common-ui/src/styles"]
+        },
         "index": "apps/marcolongo.cloud/src/index.html",
         "browser": "apps/marcolongo.cloud/src/main.ts",
         "polyfills": ["zone.js"],
