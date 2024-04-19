@@ -1,1 +1,1 @@
-export * from './lib/common-ui/common-ui.component';
+export * from './lib/components/webviewer/webviewer.component';

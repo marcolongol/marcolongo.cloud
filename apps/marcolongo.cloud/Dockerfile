@@ -18,7 +18,8 @@ COPY ./nx.json ./
 COPY ./tsconfig*.json ./
 RUN npm install --loglevel verbose
 
-COPY ./apps/marcolongo.cloud ./apps/marcolongo.cloud
+COPY ./apps ./apps
+COPY ./libs ./libs
 
 EXPOSE 4200
 

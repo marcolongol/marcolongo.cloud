@@ -59,14 +59,24 @@
         ]
       },
       "settings": {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
         "import/resolver": {
-          "eslint-import-resolver-typescript": true
+          "typescript": {
+            "alwaysTryTypes": true,
+            "project": [
+              "tsconfig.*?.json",
+              "apps/*/tsconfig.*?.json",
+              "libs/*/tsconfig.*?.json"
+            ]
+          }
         }
       }
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nx/typescript"],
+      "extends": ["plugin:@nx/typescript", "plugin:import/typescript"],
       "parserOptions": {
         "project": [
           "tsconfig.*?.json",

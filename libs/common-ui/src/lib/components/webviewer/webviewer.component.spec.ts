@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommonUiComponent } from './common-ui.component';
+import { WebViewerComponent } from './webviewer.component';
 
-describe('CommonUiComponent', () => {
-  let component: CommonUiComponent;
-  let fixture: ComponentFixture<CommonUiComponent>;
+describe('WebViewerComponent', () => {
+  let component: WebViewerComponent;
+  let fixture: ComponentFixture<WebViewerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CommonUiComponent],
+      imports: [WebViewerComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CommonUiComponent);
+    fixture = TestBed.createComponent(WebViewerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
