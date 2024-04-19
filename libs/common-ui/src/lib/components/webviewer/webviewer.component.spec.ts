@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WebViewerComponent } from './pdf-editor.component';
+import { WebViewerComponent } from './webviewer.component';
 
 describe('WebViewerComponent', () => {
   let component: WebViewerComponent;
