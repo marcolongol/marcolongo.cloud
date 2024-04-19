@@ -69,4 +69,4 @@ jobs:
 
       - name: Version
         run: |
-          npx nx run-many --target=version --dryRun=${{ env.DRY_RUN }} --verbose=${{ env.VERBOSE }} --configuration=${{ env.CONFIGURATION }} --baseBranch=${{ env.BASE_BRANCH }} --skip-nx-cache --all
+          npx nx run-many --target=version --dryRun=${{ env.DRY_RUN }} --verbose=${{ env.VERBOSE }} --configuration=${{ env.CONFIGURATION }} --baseBranch=${{ env.BASE_BRANCH }} --skip-nx-cache --all --parallel=1
