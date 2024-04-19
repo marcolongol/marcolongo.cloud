@@ -9,6 +9,12 @@
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
+      "dependsOn": [
+        {
+          "projects": ["common-ui"],
+          "target": "build"
+        }
+      ],
       "options": {
         "outputPath": "dist/apps/marcolongo.cloud",
         "index": "apps/marcolongo.cloud/src/index.html",
@@ -18,7 +24,12 @@
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/marcolongo.cloud/src/favicon.ico",
-          "apps/marcolongo.cloud/src/assets"
+          "apps/marcolongo.cloud/src/assets",
+          {
+            "input": "./libs/common-ui/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
+          }
         ],
         "styles": ["apps/marcolongo.cloud/src/styles.scss"],
         "scripts": []
