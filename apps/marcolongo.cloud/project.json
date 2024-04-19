@@ -22,6 +22,7 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/marcolongo.cloud/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
+        "allowedCommonJsDependencies": ["@pdftron/webviewer"],
         "assets": [
           "apps/marcolongo.cloud/src/favicon.ico",
           "apps/marcolongo.cloud/src/assets",
