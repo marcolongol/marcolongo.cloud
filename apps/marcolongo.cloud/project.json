@@ -132,6 +132,13 @@
     },
     "github": {
       "executor": "@jscutlery/semver:github"
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/marcolongo.cloud/**/*.css"]
+      }
     }
   }
 }
