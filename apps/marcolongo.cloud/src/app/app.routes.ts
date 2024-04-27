@@ -7,7 +7,7 @@ export const appRoutes: Route[] = [
       import('./home/home.component').then((m) => m.HomeComponent),
   },
   {
-    path: 'webviewer',
+    path: 'webviewer/:file',
     loadComponent: () =>
       import('@marcolongo.cloud/common-ui').then((m) => m.WebViewerComponent),
     data: {
