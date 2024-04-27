@@ -1,0 +1,21 @@
+import { Route } from '@angular/router';
+
+export const appRoutes: Route[] = [
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('./home/home.component').then((m) => m.HomeComponent),
+  },
+  {
+    path: 'webviewer/:file',
+    loadComponent: () =>
+      import('@marcolongo.cloud/common-ui').then((m) => m.WebViewerComponent),
+    data: {
+      file: 'demo',
+    },
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+  },
+];
