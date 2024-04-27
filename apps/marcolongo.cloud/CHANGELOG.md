@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.1](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.2.0...marcolongo.cloud-v0.2.1) (2024-04-27)
+
+
+### 🐞 Bug Fixes
+
+* **marcolongo.cloud:** add `.eslintrc.json` to development container ([#91](https://github.com/marcolongol/marcolongo.cloud/issues/91)) ([9391eaf](https://github.com/marcolongol/marcolongo.cloud/commit/9391eaf3a68ab9f26e58044566b716b12ecfa19c))
+
 ## [0.2.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.1.0...marcolongo.cloud-v0.2.0) (2024-04-27)
 
 
