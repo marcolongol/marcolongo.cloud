@@ -1,0 +1,52 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Version
+
+on:
+  push:
+    branches:
+      - release/*
+
+env:
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  version:
+    name: Version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Token
+        uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: '${{ secrets.BOT_APP_ID }}'
+          private-key: '${{ secrets.BOT_APP_PRIVATE_KEY }}'
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: '${{ steps.app-token.outputs.token }}'
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Setup Git
+        run: |
+          git config user.name "marcolongol-bot"
+          git config user.email "166586793+marcolongol-bot[bot]@users.noreply.github.com"
+
+      - name: Version
+        run: |
+          npx nx run-many --target=version --dryRun=${{ env.DRY_RUN }} --verbose=${{ env.VERBOSE }} --configuration=${{ env.CONFIGURATION }} --baseBranch=${{ env.BASE_BRANCH }} --skip-nx-cache --all --parallel=1

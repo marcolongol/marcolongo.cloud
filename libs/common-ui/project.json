@@ -1,0 +1,75 @@
+{
+  "name": "common-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/common-ui/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "prebuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "bgColor": "bgBlack",
+            "color": "white",
+            "command": "echo Copying WebViewer files to test folder",
+            "description": "Copy WebViewer files to test folder"
+          },
+          "cp -r ./node_modules/@pdftron/webviewer/public/* ./libs/common-ui/src/assets/webviewer",
+          "cp ./node_modules/@pdftron/webviewer/webviewer.min.js ./libs/common-ui/src/assets/webviewer"
+        ]
+      }
+    },
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "dependsOn": ["prebuild"],
+      "options": {
+        "project": "libs/common-ui/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/common-ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/common-ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/common-ui/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "configurations": {
+        "development": {
+          "tagPrefix": "common-ui-dev",
+          "commitMessageFormat": "chore({projectName}-dev): release version {version}"
+        },
+        "production": {
+          "tagPrefix": "common-ui-v",
+          "postTargets": ["github"]
+        }
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github"
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/common-ui/**/*.css"]
+      }
+    }
+  }
+}

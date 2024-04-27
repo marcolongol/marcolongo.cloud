@@ -1,0 +1,71 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* html */
+html {
+  height: 100%;
+}
+
+/* Body */
+body {
+  height: 100%;
+  font-family: Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+/* Links */
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #555;
+}
+
+/* Containers */
+.container {
+  overflow: hidden;
+  width: 80%;
+  margin: auto;
+}
+
+/* Grid */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-item {
+  flex: 1;
+}
+
+/* Utility */
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
