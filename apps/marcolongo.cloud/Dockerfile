@@ -16,6 +16,7 @@ WORKDIR /app
 COPY ./package*.json ./
 COPY ./nx.json ./
 COPY ./tsconfig*.json ./
+COPY ./.eslintrc.json ./
 RUN npm install --loglevel verbose
 
 COPY ./apps ./apps
