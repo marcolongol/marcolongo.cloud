@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.1.0...marcolongo.cloud-v0.2.0) (2024-04-27)
+
+
+### ✨ Features
+
+* **marcolongo.cloud:** add support for `environment` files ([#90](https://github.com/marcolongol/marcolongo.cloud/issues/90)) ([e1fba54](https://github.com/marcolongol/marcolongo.cloud/commit/e1fba549aa019d9c5bcf1a9fc915489d5554628f))
+
 ## 0.1.0 (2024-04-27)
 
 
