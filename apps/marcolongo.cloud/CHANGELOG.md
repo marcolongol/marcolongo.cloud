@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## 0.1.0 (2024-04-27)
+
+
+### ✨ Features
+
+* **marcolongo.cloud:** webviewer ([#85](https://github.com/marcolongol/marcolongo.cloud/issues/85)) ([854164e](https://github.com/marcolongol/marcolongo.cloud/commit/854164e0221139e53c076c5ea9067090b19b42e5))
+
 ## [0.1.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-dev0.0.3...marcolongo.cloud-dev0.1.0) (2024-04-19)
 
 
