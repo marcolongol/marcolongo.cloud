@@ -1,0 +1,82 @@
+---
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: 'Container'
+
+on:
+  schedule:
+    # Cron syntax:
+    # *     *     *     *     *     *
+    # ┬     ┬     ┬     ┬     ┬     ┬
+    # │     │     │     │     │     |
+    # │     │     │     │     │     └ day of week (0 - 7) (0 or 7 is Sun)
+    # │     │     │     │     └────── month (1 - 12)
+    # │     │     │     └────────── day of month (1 - 31)
+    # │     │     └─────────────── hour (0 - 23)
+    # │     └──────────────────── minute (0 - 59)
+    # └───────────────────────── second (0 - 59) #! optional
+    - cron: '35 0 * * *' # Run every day at 00:35 UTC
+    # NOTE: Github Scheduled Actions only run on the default branch!
+  workflow_dispatch:
+    inputs:
+      configuration:
+        type: choice
+        description: 'The configuration to use'
+        required: true
+        options:
+          - development
+          - production
+        default: 'production'
+  push:
+    tags:
+      - '*'
+    branches:
+      - main
+
+env:
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+  CONFIGURATION: ${{ github.ref_name == 'main' && 'development' || 'production' }}
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  container:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Dump GitHub context
+        run: echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Set up docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build images
+        run: npx nx affected --target=container --verbose --configuration=${{ env.CONFIGURATION }}
+        env:
+          INPUT_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
