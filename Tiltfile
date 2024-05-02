@@ -13,7 +13,14 @@ docker_build(
     "marcolongo.cloud-app",
     context=".",
     dockerfile="./apps/marcolongo.cloud/Dockerfile",
-    only=["./apps", "./libs", "./package.json", "./nx.json", "./tsconfig.base.json", "./.eslintrc.json"],
+    only=[
+        "./apps",
+        "./libs",
+        "./package.json",
+        "./nx.json",
+        "./tsconfig.base.json",
+        "./.eslintrc.json",
+    ],
     live_update=[
         sync("./apps", "/app/apps"),
         sync("./libs", "/app/libs"),

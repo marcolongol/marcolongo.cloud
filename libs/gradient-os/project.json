@@ -36,7 +36,7 @@
     "storybook": {
       "executor": "@storybook/angular:start-storybook",
       "options": {
-        "port": 4400,
+        "port": 4403,
         "configDir": "libs/gradient-os/.storybook",
         "browserTarget": "gradient-os:build-storybook",
         "compodoc": false
