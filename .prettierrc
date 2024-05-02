@@ -1,10 +1,12 @@
 {
   "singleQuote": true,
+  "arrowParens": "always",
+  "bracketSameLine": false,
+  "bracketSpacing": true,
   "plugins": [
     "prettier-plugin-jsdoc",
     "prettier-plugin-package",
     "prettier-plugin-organize-attributes",
-    "prettier-plugin-css-order",
     "prettier-plugin-tailwindcss"
   ],
   "overrides": [
