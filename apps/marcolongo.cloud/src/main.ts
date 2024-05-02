@@ -5,6 +5,4 @@ import { appConfig } from './app/app.config';
 
 // browsers do not support top-level await
 // eslint-disable-next-line unicorn/prefer-top-level-await
-bootstrapApplication(AppComponent, appConfig).catch((error) =>
-  console.error(error),
-);
+bootstrapApplication(AppComponent, appConfig).catch((error) => console.error(error));
