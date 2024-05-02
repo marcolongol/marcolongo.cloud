@@ -5,6 +5,10 @@
     {
       "files": ["**/*.css"],
       "rules": {}
+    },
+    {
+      "files": ["**/*.scss"],
+      "rules": {}
     }
   ]
 }

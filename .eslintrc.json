@@ -96,7 +96,9 @@
         "project": [
           "tsconfig.*?.json",
           "apps/*/tsconfig.*?.json",
-          "libs/*/tsconfig.*?.json"
+          "libs/*/tsconfig.*?.json",
+          "apps/*/.storybook/tsconfig.json",
+          "libs/*/.storybook/tsconfig.json"
         ]
       },
       "rules": {}

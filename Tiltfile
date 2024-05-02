@@ -13,7 +13,14 @@ docker_build(
     "marcolongo.cloud-app",
     context=".",
     dockerfile="./apps/marcolongo.cloud/Dockerfile",
-    only=["./apps", "./libs", "./package.json", "./nx.json", "./tsconfig.base.json", "./.eslintrc.json"],
+    only=[
+        "./apps",
+        "./libs",
+        "./package.json",
+        "./nx.json",
+        "./tsconfig.base.json",
+        "./.eslintrc.json",
+    ],
     live_update=[
         sync("./apps", "/app/apps"),
         sync("./libs", "/app/libs"),
@@ -36,3 +43,10 @@ k8s_yaml(
 )
 
 k8s_resource("marcolongo-cloud-dev", port_forwards=port_forward(4200, name="web"))
+
+local_resource(
+    "storybook",
+    serve_cmd="npx nx run-many -t storybook --all --parallel 4 --verbose",
+    trigger_mode=TRIGGER_MODE_MANUAL,
+)
+

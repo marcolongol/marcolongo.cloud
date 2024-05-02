@@ -6,6 +6,23 @@
   "projectType": "library",
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/gradient-os/ng-package.json",
+        "tailwindConfig": "libs/gradient-os/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/gradient-os/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/gradient-os/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
@@ -15,6 +32,54 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4403,
+        "configDir": "libs/gradient-os/.storybook",
+        "browserTarget": "gradient-os:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/gradient-os",
+        "configDir": "libs/gradient-os/.storybook",
+        "browserTarget": "gradient-os:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/gradient-os/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "gradient-os:build-storybook",
+        "staticFilePath": "dist/storybook/gradient-os",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "gradient-os:build-storybook:ci"
+        }
+      }
     }
   }
 }

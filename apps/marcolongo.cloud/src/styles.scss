@@ -3,3 +3,7 @@
 @use 'common-ui/variables' as common-ui-variables;
 
 @import 'common-ui/theme';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
