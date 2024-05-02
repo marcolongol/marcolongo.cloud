@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { GradientOsComponent } from './gradient-os.component';
 
 describe('GradientOsComponent', () => {
