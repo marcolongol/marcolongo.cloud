@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+
 import { gradientRoutes } from '@marcolongo.cloud/gradient-os';
 
 export const appRoutes: Route[] = [
