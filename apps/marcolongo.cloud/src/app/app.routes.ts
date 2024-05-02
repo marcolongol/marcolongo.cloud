@@ -1,7 +1,5 @@
 import { Route } from '@angular/router';
 
-import { gradientRoutes } from '@marcolongo.cloud/gradient-os';
-
 export const appRoutes: Route[] = [
   {
     path: '',
@@ -14,7 +12,8 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'gOS',
-    children: gradientRoutes,
+    loadChildren: () =>
+      import('@marcolongo.cloud/gradient-os').then((m) => m.gradientRoutes),
   },
   {
     path: '**',

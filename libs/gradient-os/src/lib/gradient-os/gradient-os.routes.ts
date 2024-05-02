@@ -3,7 +3,7 @@ import { Route } from '@angular/router';
 export const gradientRoutes: Route[] = [
   {
     path: '',
-    loadChildren: () =>
+    loadComponent: () =>
       import('./gradient-os.component').then((m) => m.GradientOsComponent),
   },
 ];
