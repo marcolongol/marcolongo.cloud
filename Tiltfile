@@ -36,3 +36,10 @@ k8s_yaml(
 )
 
 k8s_resource("marcolongo-cloud-dev", port_forwards=port_forward(4200, name="web"))
+
+local_resource(
+    "storybook",
+    serve_cmd="npx nx run-many -t storybook --all --parallel 4 --verbose",
+    trigger_mode=TRIGGER_MODE_MANUAL,
+)
+

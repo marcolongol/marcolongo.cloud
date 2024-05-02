@@ -26,7 +26,8 @@
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "dependsOn": ["prebuild"],
       "options": {
-        "project": "libs/common-ui/ng-package.json"
+        "project": "libs/common-ui/ng-package.json",
+        "tailwindConfig": "libs/common-ui/tailwind.config.js"
       },
       "configurations": {
         "production": {

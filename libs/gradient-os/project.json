@@ -6,6 +6,23 @@
   "projectType": "library",
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/gradient-os/ng-package.json",
+        "tailwindConfig": "libs/gradient-os/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/gradient-os/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/gradient-os/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
