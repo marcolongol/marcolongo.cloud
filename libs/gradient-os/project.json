@@ -33,6 +33,16 @@
     "lint": {
       "executor": "@nx/eslint:lint"
     },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "tagPrefix": "gradient-os-v",
+        "postTargets": ["github"]
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github"
+    },
     "storybook": {
       "executor": "@storybook/angular:start-storybook",
       "options": {
