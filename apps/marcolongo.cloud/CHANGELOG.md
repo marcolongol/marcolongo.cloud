@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.2.2...marcolongo.cloud-v0.3.0) (2024-05-02)
+
+
+### ✨ Features
+
+* **gradient-os:** initial commit ([#105](https://github.com/marcolongol/marcolongo.cloud/issues/105)) ([5fb2580](https://github.com/marcolongol/marcolongo.cloud/commit/5fb2580f88a903c668a92978a6cf6d95c5b05be2))
+
 ## [0.2.2](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.2.1...marcolongo.cloud-v0.2.2) (2024-05-02)
 
 ## [0.2.1](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.2.0...marcolongo.cloud-v0.2.1) (2024-04-27)
