@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { HomeComponent } from './home.component';
-
-import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
+import { within } from '@storybook/testing-library';
+
+import { HomeComponent } from './home.component';
 
 const meta: Meta<HomeComponent> = {
   component: HomeComponent,

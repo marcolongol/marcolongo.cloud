@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { CoreComponent } from './core.component';
-
-import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
+import { within } from '@storybook/testing-library';
+
+import { CoreComponent } from './core.component';
 
 const meta: Meta<CoreComponent> = {
   component: CoreComponent,
