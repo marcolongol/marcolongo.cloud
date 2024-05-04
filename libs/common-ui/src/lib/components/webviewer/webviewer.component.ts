@@ -13,7 +13,7 @@ export class WebViewerComponent implements AfterViewInit {
   @ViewChild('viewer')
   viewer!: ElementRef;
 
-  wvInstance?: WebViewerInstance;
+  wvInstance!: WebViewerInstance;
 
   ngAfterViewInit(): void {
     WebViewer(

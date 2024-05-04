@@ -8,6 +8,11 @@
   "assets": [
     "CHANGELOG.md",
     {
+      "glob": "**/*.scss",
+      "input": "./src/styles",
+      "output": "/styles"
+    },
+    {
       "glob": "**/*",
       "input": "./src/assets",
       "output": "/assets"

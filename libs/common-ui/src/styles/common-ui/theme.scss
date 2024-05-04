@@ -45,27 +45,3 @@ a {
 a:hover {
   color: #555;
 }
-
-/* Containers */
-.container {
-  overflow: hidden;
-  width: 80%;
-  margin: auto;
-}
-
-/* Grid */
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.grid-item {
-  flex: 1;
-}
-
-/* Utility */
-.clearfix::after {
-  content: '';
-  clear: both;
-  display: table;
-}

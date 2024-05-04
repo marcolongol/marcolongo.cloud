@@ -72,7 +72,9 @@
         "port": 4401,
         "configDir": "libs/common-ui/.storybook",
         "browserTarget": "common-ui:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "loglevel": "verbose",
+        "styles": ["libs/common-ui/src/styles/common-ui/theme.scss"]
       },
       "configurations": {
         "ci": {
