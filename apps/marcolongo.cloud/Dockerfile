@@ -11,6 +11,8 @@ COPY --from=node /usr/local/include /usr/local/include
 
 RUN apk update && apk upgrade
 
+RUN apk add --no-cache python3 build-base pkgconfig pixman-dev cairo-dev pango-dev libjpeg-turbo-dev giflib-dev
+
 WORKDIR /app
 
 COPY ./package*.json ./
