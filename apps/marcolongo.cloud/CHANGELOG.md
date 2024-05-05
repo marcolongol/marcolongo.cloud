@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.1](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.3.0...marcolongo.cloud-v0.3.1) (2024-05-05)
+
+
+### 🐞 Bug Fixes
+
+* **marcolongo.cloud:** add `canvas` build dependencies ([#114](https://github.com/marcolongol/marcolongo.cloud/issues/114)) ([41bb500](https://github.com/marcolongol/marcolongo.cloud/commit/41bb50013dc5a5bb56b90568d797db3bd11cc550))
+
 ## [0.3.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.2.2...marcolongo.cloud-v0.3.0) (2024-05-02)
 
 
