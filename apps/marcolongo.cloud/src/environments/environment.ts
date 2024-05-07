@@ -4,8 +4,8 @@
  * replacements can be found in `project.json`.
  */
 
-import { DeepReadOnly } from './../shared/types/types';
 import { baseEnvironment } from './environment.base';
+import { DeepReadOnly } from '../shared/types';
 
 /**
  * The environment configuration. The environment is protected by a read-only
