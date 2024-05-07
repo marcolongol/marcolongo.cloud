@@ -6,11 +6,13 @@ import {
   withComponentInputBinding,
 } from '@angular/router';
 
+import { APP_ROUTES } from 'libs/common-ui/src/shared/helpers';
+
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    { provide: 'APP_ROUTES', useValue: appRoutes },
+    { provide: APP_ROUTES, useValue: appRoutes },
     provideRouter(
       appRoutes,
       withEnabledBlockingInitialNavigation(),

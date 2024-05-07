@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterModule, provideRouter } from '@angular/router';
+import { Router, provideRouter } from '@angular/router';
 
 import { HeaderComponent } from './header.component';
 import { DEFAULT_ROUTES } from '../../../shared/helpers';
@@ -10,8 +10,16 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent, RouterModule],
-      providers: [provideRouter(DEFAULT_ROUTES)],
+      imports: [HeaderComponent],
+      providers: [
+        provideRouter([
+          ...DEFAULT_ROUTES,
+          {
+            path: '**',
+            component: HeaderComponent,
+          },
+        ]),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
@@ -32,10 +40,17 @@ describe('HeaderComponent', () => {
   });
 
   it('should have default menu items', () => {
+    console.log(component.navItems);
     expect(component.navItems).toEqual(DEFAULT_ROUTES);
   });
 
   it('should have menu items', () => {
     expect(component.navItems).toBeTruthy();
+  });
+
+  it('should navigate to defaultroute', () => {
+    const navItem = fixture.nativeElement.querySelector('.header-nav-link');
+    navItem.click();
+    expect(TestBed.inject(Router).url).toBe('/defaultroute');
   });
 });
