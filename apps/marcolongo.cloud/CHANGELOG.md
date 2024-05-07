@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.3.1...marcolongo.cloud-v0.4.0) (2024-05-07)
+
+
+### ✨ Features
+
+* **marcolongo.cloud:** add `HeaderComponent` ([#122](https://github.com/marcolongol/marcolongo.cloud/issues/122)) ([7ddcded](https://github.com/marcolongol/marcolongo.cloud/commit/7ddcdedb1d05ba20b8431b770227c9ceaf8d4237))
+
+
+### 🐞 Bug Fixes
+
+* **marcolongo.cloud:** add assets folder ([#123](https://github.com/marcolongol/marcolongo.cloud/issues/123)) ([8677eaf](https://github.com/marcolongol/marcolongo.cloud/commit/8677eaf1659b67f8b6577e6f8eace83ad0f376d5))
+
 ## [0.3.1](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.3.0...marcolongo.cloud-v0.3.1) (2024-05-05)
 
 
