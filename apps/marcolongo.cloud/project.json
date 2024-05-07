@@ -27,8 +27,6 @@
         "inlineStyleLanguage": "scss",
         "allowedCommonJsDependencies": ["@pdftron/webviewer"],
         "assets": [
-          "apps/marcolongo.cloud/src/favicon.ico",
-          "apps/marcolongo.cloud/src/assets",
           {
             "input": "./libs/common-ui/src/assets",
             "glob": "**/*",
@@ -85,6 +83,7 @@
           "buildTarget": "marcolongo.cloud:build:production"
         },
         "development": {
+          "hmr": true,
           "buildTarget": "marcolongo.cloud:build:development",
           "host": "0.0.0.0",
           "allowedHosts": ["*"]
