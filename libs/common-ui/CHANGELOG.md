@@ -2,6 +2,22 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.0.0](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v0.0.4...common-ui-v1.0.0) (2024-05-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** Update nrwl monorepo to v19 (major) (#119)
+
+### ✨ Features
+
+* **marcolongo.cloud:** add `HeaderComponent` ([#122](https://github.com/marcolongol/marcolongo.cloud/issues/122)) ([7ddcded](https://github.com/marcolongol/marcolongo.cloud/commit/7ddcdedb1d05ba20b8431b770227c9ceaf8d4237))
+
+
+### 🐞 Bug Fixes
+
+* **deps:** Update nrwl monorepo to v19 (major) ([#119](https://github.com/marcolongol/marcolongo.cloud/issues/119)) ([aac15e2](https://github.com/marcolongol/marcolongo.cloud/commit/aac15e28321832ac6b00d64d055cf6a1eba46698))
+
 ## [0.0.4](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v0.0.3...common-ui-v0.0.4) (2024-05-04)
 
 ## [0.0.3](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v0.0.2...common-ui-v0.0.3) (2024-05-03)
