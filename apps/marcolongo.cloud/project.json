@@ -27,6 +27,7 @@
         "inlineStyleLanguage": "scss",
         "allowedCommonJsDependencies": ["@pdftron/webviewer"],
         "assets": [
+          "apps/marcolongo.cloud/src/assets",
           {
             "input": "./libs/common-ui/src/assets",
             "glob": "**/*",
