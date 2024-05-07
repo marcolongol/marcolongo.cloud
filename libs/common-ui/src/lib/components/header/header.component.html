@@ -1,0 +1,19 @@
+<div class="header-logo">
+  <img [src]="logo" alt="logo" />
+</div>
+<div class="header-title">
+  <h1>{{ title }}</h1>
+</div>
+<div class="header-nav">
+  <ul>
+    <li *ngFor="let item of navItems">
+      <a
+        class="header-nav-link"
+        [routerLink]="item.path"
+        [routerLinkActive]="['header-nav-link-active']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >{{ item.label }}</a
+      >
+    </li>
+  </ul>
+</div>

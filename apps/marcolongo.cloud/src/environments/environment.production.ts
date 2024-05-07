@@ -1,5 +1,5 @@
 import { baseEnvironment } from './environment.base';
-import { DeepReadOnly } from '../shared/types/types';
+import { DeepReadOnly } from '../shared/types';
 
 /**
  * The production environment configuration. The environment is protected by a
