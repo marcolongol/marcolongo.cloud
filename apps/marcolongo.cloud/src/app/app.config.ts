@@ -6,7 +6,7 @@ import {
   withComponentInputBinding,
 } from '@angular/router';
 
-import { APP_ROUTES } from 'libs/common-ui/src/shared/helpers';
+import { APP_ROUTES } from '@marcolongo.cloud/common-ui';
 
 import { appRoutes } from './app.routes';
 
