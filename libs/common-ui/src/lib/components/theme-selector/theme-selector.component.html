@@ -1,0 +1,7 @@
+// dropdown with options for selecting a theme
+
+<ul>
+  <li *ngFor="let item of themes | keyvalue">
+    <a (click)="selectTheme(item.value)">{{ item.key }}</a>
+  </li>
+</ul>
