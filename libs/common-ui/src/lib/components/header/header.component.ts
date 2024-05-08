@@ -1,9 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, Input, OnInit, SkipSelf, Optional } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  SkipSelf,
+  Optional,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { appRoutesFactory } from '../../../shared/helpers';
-import { NavItem } from '../../../shared/types';
+import { APP_ROUTES, appRoutesFactory, DEFAULT_ROUTES } from '../../../shared/helpers';
 
 @Component({
   selector: 'lib-header',
@@ -11,26 +18,25 @@ import { NavItem } from '../../../shared/types';
   imports: [CommonModule, RouterModule],
   providers: [
     {
-      provide: 'APP_ROUTES',
+      provide: APP_ROUTES,
       useFactory: appRoutesFactory,
-      deps: [[new Optional(), new SkipSelf(), 'APP_ROUTES']],
+      deps: [[new Optional(), new SkipSelf(), APP_ROUTES]],
     },
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
-  public navItems: NavItem[];
-
   @Input() public title = 'App';
 
   @Input() public logo = 'assets/logo.svg';
 
-  constructor(@Inject('APP_ROUTES') public routes: NavItem[]) {
-    this.navItems = routes;
-  }
+  public navItems = inject(APP_ROUTES);
+
+  public _usingDefaultRoutes = false;
 
   ngOnInit(): void {
-    console.log('HeaderComponent initialized');
+    this._usingDefaultRoutes = this.navItems === DEFAULT_ROUTES;
   }
 }

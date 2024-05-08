@@ -95,3 +95,11 @@
 .header-nav-link:hover {
   color: $header-nav-hover-color;
 }
+
+.default-route {
+  color: #f00;
+
+  &:hover {
+    color: #f00;
+  }
+}
