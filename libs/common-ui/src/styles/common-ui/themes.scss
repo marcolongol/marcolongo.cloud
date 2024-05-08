@@ -52,6 +52,16 @@
   --header-nav-hover-color: #ba68c8; // Lightest Purple
 }
 
+.theme-system {
+  --primary-color: #00796b; // Teal
+  --secondary-color: #009688; // Light Teal
+  --tertiary-color: #26a69a; // Lighter Teal
+  --quaternary-color: #4db6ac; // Lightest Teal
+  --header-height: 60px;
+  --header-background-color: #00796b; // Teal
+  --header-nav-hover-color: #4db6ac; // Lightest Teal
+}
+
 * {
   box-sizing: border-box;
 }
