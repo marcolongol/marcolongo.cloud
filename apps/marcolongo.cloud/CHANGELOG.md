@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.5.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.4.1...marcolongo.cloud-v0.5.0) (2024-05-08)
+
+
+### ✨ Features
+
+* **common-ui:** add `ThemeSelectorComponent` ([#131](https://github.com/marcolongol/marcolongo.cloud/issues/131)) ([ef1bdeb](https://github.com/marcolongol/marcolongo.cloud/commit/ef1bdeb904d265ae13d5f7170dfc0889481b5ce0))
+
 ## [0.4.1](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.4.0...marcolongo.cloud-v0.4.1) (2024-05-08)
 
 ## [0.4.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.3.1...marcolongo.cloud-v0.4.0) (2024-05-07)
