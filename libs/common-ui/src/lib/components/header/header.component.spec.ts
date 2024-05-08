@@ -32,11 +32,11 @@ describe('HeaderComponent', () => {
   });
 
   it('should have default title', () => {
-    expect(component.title).toBe('App');
+    expect(component.title).toBe('marcolongo.cloud');
   });
 
   it('should have default logo', () => {
-    expect(component.logo).toBe('assets/logo.svg');
+    expect(component.logo).toBe('assets/marcolongo.svg');
   });
 
   it('should have default menu items', () => {
