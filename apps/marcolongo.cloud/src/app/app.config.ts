@@ -6,11 +6,13 @@ import {
   withComponentInputBinding,
 } from '@angular/router';
 
+import { APP_ROUTES } from '@marcolongo.cloud/common-ui';
+
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    { provide: 'APP_ROUTES', useValue: appRoutes },
+    { provide: APP_ROUTES, useValue: appRoutes },
     provideRouter(
       appRoutes,
       withEnabledBlockingInitialNavigation(),

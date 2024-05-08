@@ -12,6 +12,10 @@
         [routerLink]="item.path"
         [routerLinkActive]="['header-nav-link-active']"
         [routerLinkActiveOptions]="{ exact: true }"
+        [ngClass]="{
+          'default-route': _usingDefaultRoutes
+        }"
+        [title]="_usingDefaultRoutes ? 'Default route' : 'Navigate to ' + item.label"
         >{{ item.label }}</a
       >
     </li>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, InjectionToken } from '@angular/core';
 
 import { NavItem } from './types';
 
@@ -10,25 +10,21 @@ export class MockComponent {}
 
 export const DEFAULT_ROUTES: NavItem[] = [
   {
-    path: 'home',
-    label: 'Home',
-    icon: 'home',
+    path: 'defaultroute',
+    label: 'No routes provided!',
+    icon: 'warning',
     component: MockComponent,
     active: true,
-  },
-  {
-    path: 'about',
-    label: 'About',
-    icon: 'info',
-    active: false,
-    component: MockComponent,
   },
 ];
 
 export const appRoutesFactory = (routes: NavItem[] = []): NavItem[] => {
   if (!routes) {
-    console.warn('No routes provided, falling back to default routes');
-    console.warn('Please provide routes using APP_ROUTES token');
+    console.warn('No routes provided, using default routes');
+    console.warn('Please provide routes using the APP_ROUTES injection token');
+    return DEFAULT_ROUTES;
   }
-  return routes ?? DEFAULT_ROUTES;
+  return routes;
 };
+
+export const APP_ROUTES = new InjectionToken<NavItem[]>('APP_ROUTES');
