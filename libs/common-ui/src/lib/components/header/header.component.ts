@@ -28,9 +28,9 @@ import { APP_ROUTES, appRoutesFactory, DEFAULT_ROUTES } from '../../../shared/he
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit {
-  @Input() public title = 'App';
+  @Input() public title = 'marcolongo.cloud';
 
-  @Input() public logo = 'assets/logo.svg';
+  @Input() public logo = 'assets/marcolongo.svg';
 
   public navItems = inject(APP_ROUTES);
 
