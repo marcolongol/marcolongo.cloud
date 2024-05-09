@@ -11,11 +11,12 @@ import {
 import { RouterModule } from '@angular/router';
 
 import { APP_ROUTES, appRoutesFactory, DEFAULT_ROUTES } from '../../../shared/helpers';
+import { ThemeSelectorComponent } from '../theme-selector/theme-selector.component';
 
 @Component({
   selector: 'lib-header',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ThemeSelectorComponent],
   providers: [
     {
       provide: APP_ROUTES,
