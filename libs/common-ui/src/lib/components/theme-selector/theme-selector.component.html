@@ -1,4 +1,4 @@
-<select class="form-control" (change)="selectTheme($event.target.value)">
+<select class="form-control" (change)="selectTheme($event)">
   <option *ngFor="let item of themes | keyvalue" [value]="item.key | lowercase">
     {{ item.value | titlecase }}
   </option>

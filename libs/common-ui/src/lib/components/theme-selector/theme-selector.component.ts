@@ -23,7 +23,8 @@ export class ThemeSelectorComponent implements OnInit {
     console.log('Current theme:', this.themeService.getTheme());
   }
 
-  selectTheme(theme: Theme): void {
+  selectTheme(event: Event): void {
+    const theme = (event.target as HTMLSelectElement).value as Theme;
     this.themeService.setTheme(theme);
   }
 }
