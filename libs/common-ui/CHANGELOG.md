@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.2.0](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v1.1.0...common-ui-v1.2.0) (2024-05-09)
+
+
+### ✨ Features
+
+* **common-ui:** add `ThemeSelectorComponent` to `HeaderComponent` ([#137](https://github.com/marcolongol/marcolongo.cloud/issues/137)) ([cc39106](https://github.com/marcolongol/marcolongo.cloud/commit/cc3910661434923275a93656e0e1546fa5be32a9))
+
 ## [1.1.0](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v1.0.3...common-ui-v1.1.0) (2024-05-08)
 
 
