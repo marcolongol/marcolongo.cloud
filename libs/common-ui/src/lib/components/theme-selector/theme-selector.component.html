@@ -1,7 +1,5 @@
-// dropdown with options for selecting a theme
-
-<ul>
-  <li *ngFor="let item of themes | keyvalue">
-    <a (click)="selectTheme(item.value)">{{ item.key }}</a>
-  </li>
-</ul>
+<select class="form-control" (change)="selectTheme($event)">
+  <option *ngFor="let item of themes | keyvalue" [value]="item.key | lowercase">
+    {{ item.value | titlecase }}
+  </option>
+</select>
