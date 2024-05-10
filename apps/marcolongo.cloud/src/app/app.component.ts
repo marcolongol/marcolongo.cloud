@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { HeaderComponent } from '@marcolongo.cloud/common-ui';
+import { HeaderComponent } from '@marcolongo.cloud/common-ui/components';
 
 @Component({
   standalone: true,

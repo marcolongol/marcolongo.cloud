@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
-import { Theme, Themes } from '../../../shared/types';
-import { ThemeService } from '../../services/theme/theme.service';
+import { ThemeService } from '../../../../services/src/lib/theme/theme.service';
+import { Theme, Themes } from '../../../../src/shared/types';
 
 @Component({
   selector: 'lib-theme-selector',
@@ -12,16 +12,9 @@ import { ThemeService } from '../../services/theme/theme.service';
   templateUrl: './theme-selector.component.html',
   styleUrl: './theme-selector.component.scss',
 })
-export class ThemeSelectorComponent implements OnInit {
+export class ThemeSelectorComponent {
   public themeService = inject(ThemeService);
   public themes = Themes;
-
-  @Output() themeChange = new EventEmitter<Theme>();
-
-  ngOnInit(): void {
-    console.log('ThemeSelectorComponent initialized');
-    console.log('Current theme:', this.themeService.getTheme());
-  }
 
   selectTheme(event: Event): void {
     const theme = (event.target as HTMLSelectElement).value as Theme;
