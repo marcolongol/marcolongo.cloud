@@ -1,7 +1,8 @@
-@import '../../../styles/common-ui/variables';
+@import '../../../../src/styles/common-ui/variables';
 
 :host {
   position: sticky;
+  top: 0;
 
   display: flex;
   flex-direction: row;

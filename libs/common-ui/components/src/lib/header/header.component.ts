@@ -1,43 +1,23 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  Input,
-  OnInit,
-  SkipSelf,
-  Optional,
-  inject,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { APP_ROUTES, appRoutesFactory, DEFAULT_ROUTES } from '../../../shared/helpers';
+import { APP_ROUTES } from '@marcolongo.cloud/common-ui';
+
 import { ThemeSelectorComponent } from '../theme-selector/theme-selector.component';
 
 @Component({
   selector: 'lib-header',
   standalone: true,
   imports: [CommonModule, RouterModule, ThemeSelectorComponent],
-  providers: [
-    {
-      provide: APP_ROUTES,
-      useFactory: appRoutesFactory,
-      deps: [[new Optional(), new SkipSelf(), APP_ROUTES]],
-    },
-  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @Input() public title = 'marcolongo.cloud';
 
   @Input() public logo = 'assets/marcolongo.svg';
 
   public navItems = inject(APP_ROUTES);
-
-  public _usingDefaultRoutes = false;
-
-  ngOnInit(): void {
-    this._usingDefaultRoutes = this.navItems === DEFAULT_ROUTES;
-  }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Themes, Theme } from '../../../shared/types';
+import { Themes, Theme } from '@marcolongo.cloud/common-ui';
 
 @Injectable({
   providedIn: 'root',
