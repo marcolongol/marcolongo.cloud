@@ -17,6 +17,9 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
+            "checkDynamicDependenciesExceptions": [
+              "@marcolongo.cloud/common-ui/components"
+            ],
             "allow": [],
             "depConstraints": [
               {
