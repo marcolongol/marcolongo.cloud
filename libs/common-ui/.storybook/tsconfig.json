@@ -10,6 +10,11 @@
     "../src/**/*.stories.jsx",
     "../src/**/*.stories.tsx",
     "../src/**/*.stories.mdx",
+    "../webviewer/src/**/*.stories.ts",
+    "../webviewer/src/**/*.stories.js",
+    "../webviewer/src/**/*.stories.jsx",
+    "../webviewer/src/**/*.stories.tsx",
+    "../webviewer/src/**/*.stories.mdx",
     "*.js",
     "*.ts"
   ]

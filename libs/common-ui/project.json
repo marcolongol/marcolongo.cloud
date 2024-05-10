@@ -16,8 +16,8 @@
             "command": "echo Copying WebViewer files to test folder",
             "description": "Copy WebViewer files to test folder"
           },
-          "cp -r ./node_modules/@pdftron/webviewer/public/* ./libs/common-ui/src/assets/webviewer",
-          "cp ./node_modules/@pdftron/webviewer/webviewer.min.js ./libs/common-ui/src/assets/webviewer"
+          "cp -r ./node_modules/@pdftron/webviewer/public/* ./libs/common-ui/webviewer/src/assets/webviewer",
+          "cp ./node_modules/@pdftron/webviewer/webviewer.min.js ./libs/common-ui/webviewer/src/assets/webviewer"
         ]
       }
     },
@@ -75,7 +75,7 @@
         "compodoc": false,
         "loglevel": "verbose",
         "styles": ["libs/common-ui/src/styles/common-ui/themes.scss"],
-        "assets": ["libs/common-ui/src/assets"]
+        "assets": ["libs/common-ui/src/assets", "libs/common-ui/webviewer/src/assets"]
       },
       "configurations": {
         "ci": {

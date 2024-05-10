@@ -32,12 +32,17 @@
             "input": "./libs/common-ui/src/assets",
             "glob": "**/*",
             "output": "/assets"
+          },
+          {
+            "input": "./libs/common-ui/webviewer/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
           }
         ],
         "styles": ["apps/marcolongo.cloud/src/styles.scss"],
         "scripts": [
           {
-            "input": "./libs/common-ui/src/assets/webviewer/webviewer.min.js"
+            "input": "./libs/common-ui/webviewer/src/assets/webviewer/webviewer.min.js"
           }
         ]
       },
@@ -66,6 +71,7 @@
         "development": {
           "optimization": false,
           "extractLicenses": false,
+          "namedChunks": true,
           "sourceMap": true,
           "fileReplacements": [
             {

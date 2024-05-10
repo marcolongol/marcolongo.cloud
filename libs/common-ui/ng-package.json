@@ -16,6 +16,11 @@
       "glob": "**/*",
       "input": "./src/assets",
       "output": "/assets"
+    },
+    {
+      "glob": "**/*",
+      "input": "./webviewer/src/assets",
+      "output": "/webviewer/assets"
     }
   ]
 }

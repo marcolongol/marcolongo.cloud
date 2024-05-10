@@ -10,7 +10,9 @@ export const appRoutes: Route[] = [
     path: 'webviewer',
     data: { label: 'WebViewer', icon: 'web' },
     loadComponent: () =>
-      import('@marcolongo.cloud/common-ui').then((m) => m.WebViewerComponent),
+      import('@marcolongo.cloud/common-ui/webviewer').then(
+        (m) => m.WebViewerComponent,
+      ),
   },
   {
     path: 'gOS',
