@@ -16,8 +16,8 @@
             "command": "echo Copying WebViewer files to test folder",
             "description": "Copy WebViewer files to test folder"
           },
-          "cp -r ./node_modules/@pdftron/webviewer/public/* ./libs/common-ui/src/assets/webviewer",
-          "cp ./node_modules/@pdftron/webviewer/webviewer.min.js ./libs/common-ui/src/assets/webviewer"
+          "cp -r ./node_modules/@pdftron/webviewer/public/* ./libs/common-ui/webviewer/src/assets/webviewer",
+          "cp ./node_modules/@pdftron/webviewer/webviewer.min.js ./libs/common-ui/webviewer/src/assets/webviewer"
         ]
       }
     },

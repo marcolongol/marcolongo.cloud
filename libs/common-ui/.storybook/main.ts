@@ -8,6 +8,10 @@ const config: StorybookConfig = {
       from: '../src/assets',
       to: 'assets',
     },
+    {
+      from: '../webviewer/src/assets',
+      to: 'assets',
+    },
   ],
   framework: {
     name: '@storybook/angular',
