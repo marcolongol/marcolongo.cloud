@@ -1,11 +1,3 @@
-import { Route } from '@angular/router';
-
-export type NavItem = Route &
-  Partial<{
-    label: string;
-    icon: string;
-  }>;
-
 export const Themes = {
   LIGHT: 'light',
   DARK: 'dark',

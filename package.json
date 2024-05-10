@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "nx run-many --target=build --all",
-    "lint": "nx run-many --target=lint --all",
+    "build": "nx run-many --target=build --all --skip-nx-cache",
+    "lint": "nx run-many --target=lint --all --skip-nx-cache",
     "prepare": "husky",
-    "start": "nx run-many --target=serve --all",
-    "start:web": "nx run marcolongo.cloud:serve:development"
+    "start": "nx run-many --target=serve --all --skip-nx-cache",
+    "start:web": "nx run marcolongo.cloud:serve:development --skip-nx-cache"
   },
   "private": true,
   "browserslist": [

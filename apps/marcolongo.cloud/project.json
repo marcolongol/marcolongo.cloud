@@ -85,6 +85,12 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
+      "dependsOn": [
+        {
+          "projects": ["common-ui"],
+          "target": "build"
+        }
+      ],
       "configurations": {
         "production": {
           "buildTarget": "marcolongo.cloud:build:production"
