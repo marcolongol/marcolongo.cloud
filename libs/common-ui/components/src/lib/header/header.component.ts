@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { APP_ROUTES } from '../../../../src/shared/helpers';
+import { APP_ROUTES } from '@marcolongo.cloud/common-ui';
+
 import { ThemeSelectorComponent } from '../theme-selector/theme-selector.component';
 
 @Component({

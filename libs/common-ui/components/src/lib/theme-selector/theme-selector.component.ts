@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 
-import { ThemeService } from '../../../../services/src/lib/theme/theme.service';
-import { Theme, Themes } from '../../../../src/shared/types';
+import { Theme, Themes } from '@marcolongo.cloud/common-ui';
+import { ThemeService } from '@marcolongo.cloud/common-ui/services';
 
 @Component({
   selector: 'lib-theme-selector',
