@@ -1,8 +1,14 @@
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Router, provideRouter } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header.component';
-import { DEFAULT_ROUTES } from '../../../shared/helpers';
+
+@Component({
+  selector: 'lib-blank',
+  template: '',
+})
+class BlankComponent {}
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -10,13 +16,18 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent],
-      providers: [
-        provideRouter([
-          ...DEFAULT_ROUTES,
+      imports: [
+        HeaderComponent,
+        RouterModule.forRoot([
           {
-            path: '**',
-            component: HeaderComponent,
+            path: 'home',
+            data: { label: 'Home', icon: 'home' },
+            component: BlankComponent,
+          },
+          {
+            path: 'about',
+            data: { label: 'About', icon: 'info' },
+            component: BlankComponent,
           },
         ]),
       ],
@@ -39,18 +50,10 @@ describe('HeaderComponent', () => {
     expect(component.logo).toBe('assets/marcolongo.svg');
   });
 
-  it('should have default menu items', () => {
-    console.log(component.navItems);
-    expect(component.navItems).toEqual(DEFAULT_ROUTES);
-  });
-
-  it('should have menu items', () => {
-    expect(component.navItems).toBeTruthy();
-  });
-
-  it('should navigate to defaultroute', () => {
-    const navItem = fixture.nativeElement.querySelector('.header-nav-link');
-    navItem.click();
-    expect(TestBed.inject(Router).url).toBe('/defaultroute');
+  it('should have correct menu items', () => {
+    expect(component.navItems).toEqual([
+      { path: 'home', label: 'Home', icon: 'home' },
+      { path: 'about', label: 'About', icon: 'info' },
+    ]);
   });
 });

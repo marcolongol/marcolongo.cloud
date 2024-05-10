@@ -1,17 +1,35 @@
+import { Component } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { action } from '@storybook/addon-actions';
-import { type Meta, type StoryObj, applicationConfig } from '@storybook/angular';
+import { applicationConfig, type Meta, type StoryObj } from '@storybook/angular';
 import { within } from '@storybook/testing-library';
 
 import { HeaderComponent } from './header.component';
-import { DEFAULT_ROUTES } from '../../../shared/helpers';
+
+@Component({
+  selector: 'lib-blank',
+  template: '',
+})
+class BlankComponent {}
 
 const meta: Meta<HeaderComponent> = {
   component: HeaderComponent,
   title: 'HeaderComponent',
   decorators: [
     applicationConfig({
-      providers: [provideRouter(DEFAULT_ROUTES)],
+      providers: [
+        provideRouter([
+          {
+            path: 'home',
+            data: { label: 'Home', icon: 'home' },
+            component: BlankComponent,
+          },
+          {
+            path: 'about',
+            data: { label: 'About', icon: 'info' },
+            component: BlankComponent,
+          },
+        ]),
+      ],
     }),
   ],
 };
@@ -22,12 +40,11 @@ type Story = StoryObj<HeaderComponent>;
 export const Primary: Story = {};
 
 export const Heading: Story = {
-  render: () => ({
-    props: {
-      routerLink: action('routerLink'),
-    },
-  }),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
+    const home = await canvas.findByText('Home');
+    const about = await canvas.findByText('About');
+    home.click();
+    about.click();
   },
 };

@@ -4,7 +4,6 @@ export type NavItem = Route &
   Partial<{
     label: string;
     icon: string;
-    active: boolean;
   }>;
 
 export const Themes = {
