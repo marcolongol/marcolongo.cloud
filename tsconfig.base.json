@@ -20,10 +20,12 @@
         "libs/common-ui/components/src/index.ts"
       ],
       "@marcolongo.cloud/common-ui/services": ["libs/common-ui/services/src/index.ts"],
+      "@marcolongo.cloud/common-ui/utils": ["libs/common-ui/utils/src/index.ts"],
       "@marcolongo.cloud/common-ui/webviewer": [
         "libs/common-ui/webviewer/src/index.ts"
       ],
       "@marcolongo.cloud/core": ["libs/core/src/index.ts"],
+      "@marcolongo.cloud/core/utils": ["libs/core/utils/src/index.ts"],
       "@marcolongo.cloud/gradient-os": ["libs/gradient-os/src/index.ts"]
     }
   },
