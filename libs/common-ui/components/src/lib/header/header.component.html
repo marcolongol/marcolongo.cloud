@@ -1,22 +1,50 @@
 <div class="header-logo">
   <img [src]="logo" alt="logo" />
 </div>
+
 <div class="header-title">
   <h1>{{ title }}</h1>
 </div>
+
 <div class="header-nav">
-  <ul>
-    <li *ngFor="let item of navItems">
-      <a
-        class="header-nav-link"
-        [routerLink]="item.path"
-        [routerLinkActive]="['header-nav-link-active']"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >{{ item.label }}</a
-      >
-    </li>
-  </ul>
+  @if (navItems()) {
+    <ul>
+      <li *ngFor="let item of navItems()">
+        <a
+          class="header-nav-link"
+          [routerLink]="item.path"
+          [routerLinkActive]="['header-nav-link-active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >{{ item.label }}</a
+        >
+      </li>
+    </ul>
+  } @else {
+    <ng-container *ngTemplateOutlet="noNavItems"></ng-container>
+  }
 </div>
+
 <div class="theme-selector">
   <lib-theme-selector></lib-theme-selector>
 </div>
+
+<ng-template #noNavItems>
+  <ul>
+    <li>
+      <a
+        class="header-nav-link"
+        routerLink="/home"
+        routerLinkActive="header-nav-link-active"
+        >Home</a
+      >
+    </li>
+    <li>
+      <a
+        class="header-nav-link"
+        routerLink="/about"
+        routerLinkActive="header-nav-link-active"
+        >About</a
+      >
+    </li>
+  </ul>
+</ng-template>
