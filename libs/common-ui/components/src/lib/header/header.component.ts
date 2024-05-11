@@ -1,7 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  ChangeDetectionStrategy,
+  inject,
+  Signal,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { APP_ROUTES } from '@marcolongo.cloud/core/utils';
+import { NavItem, APP_ROUTES } from '@marcolongo.cloud/core/utils';
 
 import { ThemeSelectorComponent } from '../theme-selector/theme-selector.component';
 
@@ -18,5 +24,5 @@ export class HeaderComponent {
 
   @Input() public logo = 'assets/marcolongo.svg';
 
-  public navItems = inject(APP_ROUTES);
+  public navItems: Signal<NavItem[]> = inject(APP_ROUTES);
 }
