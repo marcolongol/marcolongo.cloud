@@ -1,10 +1,8 @@
-import { InjectionToken, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { NavigationEnd } from '@angular/router';
-import { catchError, filter, map } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { InjectionToken, inject, Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { Signal } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { of } from 'rxjs';
+import { catchError, filter, map } from 'rxjs/operators';
 
 import { NavItem } from './types';
 export const appRoutesFactory = (): Signal<NavItem[]> => {
@@ -28,7 +26,7 @@ export const appRoutesFactory = (): Signal<NavItem[]> => {
     map(() => {
       return extractRoutes();
     }),
-    catchError((error) => {
+    catchError((error: unknown) => {
       console.error('Error in appRoutesFactory', error);
       return of([]);
     }),
