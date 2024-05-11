@@ -6,7 +6,7 @@
 </div>
 <div class="header-nav">
   <ul>
-    <li *ngFor="let item of navItems">
+    <li *ngFor="let item of navItems()">
       <a
         class="header-nav-link"
         [routerLink]="item.path"
