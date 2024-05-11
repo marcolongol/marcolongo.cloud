@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
+import { provideRouter } from '@angular/router';
 
 import { HeaderComponent } from './header.component';
 
 @Component({
-  selector: 'lib-blank',
-  template: '',
+  template: ``,
+  standalone: true,
 })
-class BlankComponent {}
+class DummyComponent {}
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -16,18 +16,18 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        HeaderComponent,
-        RouterModule.forRoot([
+      imports: [HeaderComponent],
+      providers: [
+        provideRouter([
           {
             path: 'home',
             data: { label: 'Home', icon: 'home' },
-            component: BlankComponent,
+            component: DummyComponent,
           },
           {
             path: 'about',
             data: { label: 'About', icon: 'info' },
-            component: BlankComponent,
+            component: DummyComponent,
           },
         ]),
       ],
