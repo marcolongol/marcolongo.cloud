@@ -35,6 +35,7 @@ on:
 
 env:
   NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+  NX_SKIP_NX_CACHE: ${{ vars.NX_SKIP_NX_CACHE || 'false' }}
   CONFIGURATION: ${{ github.ref_name == 'main' && 'development' || 'production' }}
 
 permissions:
