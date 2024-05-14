@@ -2,7 +2,7 @@
   class="flex flex-initial flex-row items-center justify-center pl-5 pr-5 hover:cursor-pointer"
 >
   <img
-    class="transform rounded-full outline outline-1 transition duration-500 ease-in-out hover:scale-110 hover:opacity-75 hover:outline-2"
+    class="transform rounded-full shadow outline outline-1 transition duration-500 ease-in-out hover:scale-110 hover:opacity-75 hover:outline-2"
     [src]="logo"
     [routerLink]="['/']"
     alt="logo"
@@ -10,18 +10,25 @@
 </div>
 
 <div class="flex flex-initial flex-row items-center justify-center pl-5 pr-5">
-  <h1 class="text-2xl font-bold">{{ title }}</h1>
+  <h1 class="text-2xl font-bold">{{ title | titlecase }}</h1>
+  @if (subtitle) {
+    <h3
+      class="pl-1 align-top text-sm font-bold tracking-tighter text-gray-500 underline"
+    >
+      {{ subtitle }}
+    </h3>
+  }
 </div>
 
 <div class="flex flex-1 items-center justify-center pl-5 pr-5">
   @if (navItems()) {
     <ul class="flex flex-1 list-none flex-row">
       <li
-        class="ml-3 mr-3 flex flex-1 flex-none items-center text-center text-lg hover:cursor-pointer"
+        class="flex flex-1 flex-none items-center border-r-2 border-gray-300 text-center text-lg hover:cursor-pointer"
         *ngFor="let item of navItems()"
       >
         <a
-          class="header-nav-link transition duration-500 ease-in-out hover:scale-110 hover:text-blue-500 hover:opacity-75 hover:outline-2"
+          class="ml-3 mr-3 transition duration-500 ease-in-out hover:scale-110 hover:text-blue-500 hover:opacity-75 hover:outline-2"
           [routerLink]="item.path"
           [routerLinkActive]="['header-nav-link-active']"
           [routerLinkActiveOptions]="{ exact: true }"

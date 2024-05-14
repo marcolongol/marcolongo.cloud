@@ -7,14 +7,14 @@
   height: $header-height;
   margin: calc($header-height / 2) 0;
 
-  background-color: $header-background-color;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  background-color: $primary-color;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
 }
 
 img {
   width: calc($header-height * 1.2);
   height: calc($header-height * 1.2);
-  background-color: $header-background-color;
+  background-color: $primary-color;
 }
 
 .header-nav-link-active {

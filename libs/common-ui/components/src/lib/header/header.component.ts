@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import {
   Component,
   Input,
+  Optional,
   ChangeDetectionStrategy,
   inject,
   input,
@@ -20,7 +21,8 @@ import { ThemeSelectorComponent } from '../theme-selector/theme-selector.compone
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
-  @Input() public title = 'marcolongo.cloud';
+  @Input() public title = 'marcolongo';
+  @Input() @Optional() public subtitle = '.cloud';
 
   @Input() public logo = 'assets/marcolongo.svg';
 
