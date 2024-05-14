@@ -4,7 +4,7 @@ import {
   Input,
   ChangeDetectionStrategy,
   inject,
-  Signal,
+  input,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavItem, APP_ROUTES } from '@marcolongo.cloud/core/utils';
@@ -24,5 +24,5 @@ export class HeaderComponent {
 
   @Input() public logo = 'assets/marcolongo.svg';
 
-  public navItems: Signal<NavItem[]> = inject(APP_ROUTES);
+  public navItems = input<NavItem[]>(inject(APP_ROUTES));
 }
