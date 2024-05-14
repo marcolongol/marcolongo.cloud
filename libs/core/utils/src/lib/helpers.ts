@@ -1,14 +1,12 @@
-import { InjectionToken, inject, Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { Router, NavigationEnd } from '@angular/router';
-import { of } from 'rxjs';
-import { catchError, filter, map } from 'rxjs/operators';
+import { InjectionToken, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { NavItem } from './types';
-export const appRoutesFactory = (): Signal<NavItem[]> => {
-  const router = inject(Router);
 
-  const extractRoutes = () => {
+export const APP_ROUTES = new InjectionToken<NavItem[]>('APP_ROUTES', {
+  providedIn: 'root',
+  factory: () => {
+    const router = inject(Router);
     return router.config
       .filter((route) => route.data?.['label'])
       .map((route) => {
@@ -19,25 +17,5 @@ export const appRoutesFactory = (): Signal<NavItem[]> => {
         };
         return navItem;
       });
-  };
-
-  const routes$ = router.events.pipe(
-    filter((event) => event instanceof NavigationEnd),
-    map(() => {
-      return extractRoutes();
-    }),
-    catchError((error: unknown) => {
-      console.error('Error in appRoutesFactory', error);
-      return of([]);
-    }),
-  );
-
-  return toSignal(routes$, {
-    initialValue: extractRoutes(),
-  });
-};
-
-export const APP_ROUTES = new InjectionToken<Signal<NavItem[]>>('APP_ROUTES', {
-  providedIn: 'root',
-  factory: () => appRoutesFactory(),
+  },
 });
