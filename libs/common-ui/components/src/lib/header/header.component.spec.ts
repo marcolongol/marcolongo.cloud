@@ -46,7 +46,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should render title', () => {
-    const title = 'marcolongo.cloud';
+    const title = 'Marcolongo';
     component.title = title;
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
