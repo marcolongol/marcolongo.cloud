@@ -204,7 +204,20 @@
         "port": 4400,
         "configDir": "apps/marcolongo.cloud/.storybook",
         "browserTarget": "marcolongo.cloud:build",
-        "compodoc": false
+        "compodoc": false,
+        "assets": [
+          "apps/marcolongo.cloud/src/assets",
+          {
+            "input": "./libs/common-ui/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
+          },
+          {
+            "input": "./libs/common-ui/webviewer/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
+          }
+        ]
       },
       "configurations": {
         "ci": {
@@ -219,7 +232,20 @@
         "outputDir": "dist/storybook/marcolongo.cloud",
         "configDir": "apps/marcolongo.cloud/.storybook",
         "browserTarget": "marcolongo.cloud:build",
-        "compodoc": false
+        "compodoc": false,
+        "assets": [
+          "apps/marcolongo.cloud/src/assets",
+          {
+            "input": "./libs/common-ui/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
+          },
+          {
+            "input": "./libs/common-ui/webviewer/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
+          }
+        ]
       },
       "configurations": {
         "ci": {
