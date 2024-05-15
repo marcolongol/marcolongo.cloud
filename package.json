@@ -62,6 +62,7 @@
     "@nx/storybook": "19.0.4",
     "@nx/web": "19.0.4",
     "@nx/workspace": "19.0.4",
+    "@nxlv/python": "^18.1.0",
     "@schematics/angular": "~17.3.0",
     "@storybook/addon-essentials": "^8.0.0",
     "@storybook/addon-interactions": "^8.0.0",
