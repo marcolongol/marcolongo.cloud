@@ -1,59 +1,59 @@
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/brands';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --text-color: #333;
-  --primary-color: #f5f5f5; // Light Gray
-  --secondary-color: #e0e0e0; // Gray
-  --tertiary-color: #bdbdbd; // Dark Gray
-  --quaternary-color: #9e9e9e; // Darker Gray
+  --primary-color: #f5f5f5;
+  --secondary-color: #e0e0e0;
+  --tertiary-color: #bdbdbd;
+  --quaternary-color: #9e9e9e;
   --header-height: 50px;
+  --font-family: roboto, sans-serif;
 }
 
 .theme-dark {
-  --text-color: #f5f5f5; // Light Gray
-  --primary-color: #1a1a1a; // Dark Gray
-  --secondary-color: #333; // Gray
-  --tertiary-color: #4d4d4d; // Light Gray
-  --quaternary-color: #666; // Lighter Gray
-  --header-height: 50px;
+  --text-color: #f5f5f5;
+  --primary-color: #1a1a1a;
+  --secondary-color: #333;
+  --tertiary-color: #4d4d4d;
+  --quaternary-color: #666;
 }
 
 .theme-light {
   --text-color: #333;
-  --primary-color: #f5f5f5; // Light Gray
-  --secondary-color: #e0e0e0; // Gray
-  --tertiary-color: #bdbdbd; // Dark Gray
-  --quaternary-color: #9e9e9e; // Darker Gray
-  --header-height: 50px;
+  --primary-color: #f5f5f5;
+  --secondary-color: #e0e0e0;
+  --tertiary-color: #bdbdbd;
+  --quaternary-color: #9e9e9e;
 }
 
 .theme-darkgreen {
-  --text-color: #f5f5f5; // Light Gray
-  --primary-color: #1b5e20; // Dark Green
-  --secondary-color: #388e3c; // Green
-  --tertiary-color: #4caf50; // Light Green
-  --quaternary-color: #66bb6a; // Lighter Green
-  --header-height: 50px;
+  --text-color: #f5f5f5;
+  --primary-color: #1b5e20;
+  --secondary-color: #388e3c;
+  --tertiary-color: #4caf50;
+  --quaternary-color: #66bb6a;
 }
 
 .theme-darkpurple {
-  --text-color: #f5f5f5; // Light Gray
-  --primary-color: #6a1b9a; // Purple
-  --secondary-color: #9c27b0; // Light Purple
-  --tertiary-color: #ab47bc; // Lighter Purple
-  --quaternary-color: #ba68c8; // Lightest Purple
-  --header-height: 50px;
+  --text-color: #f5f5f5;
+  --primary-color: #6a1b9a;
+  --secondary-color: #9c27b0;
+  --tertiary-color: #ab47bc;
+  --quaternary-color: #ba68c8;
 }
 
 .theme-system {
-  --text-color: #f5f5f5; // Light Gray
-  --primary-color: #00796b; // Teal
-  --secondary-color: #009688; // Light Teal
-  --tertiary-color: #26a69a; // Lighter Teal
-  --quaternary-color: #4db6ac; // Lightest Teal
-  --header-height: 50px;
+  --text-color: #f5f5f5;
+  --primary-color: #00796b;
+  --secondary-color: #009688;
+  --tertiary-color: #26a69a;
+  --quaternary-color: #4db6ac;
 }
 
 * {
@@ -69,7 +69,7 @@ body {
   margin: 0;
   padding: 0;
 
-  font-family: Roboto, sans-serif;
+  font-family: var(--font-family);
   color: var(--text-color);
 
   background-color: var(--primary-color);

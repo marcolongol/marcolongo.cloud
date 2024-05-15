@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'lib-footer',
@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
-export class FooterComponent {}
+export class FooterComponent {
+  public githubUser = input('marcolongol');
+  public facebookUser = input('LMarcolong');
+  public instagramUser = input('m4rcolongo');
+  public linkedinUser = input('lucas-marcolongo');
+}
