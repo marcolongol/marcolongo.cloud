@@ -16,12 +16,7 @@
         }
       ],
       "options": {
-        "outputPath": {
-          "base": "dist/apps/marcolongo.cloud",
-          "media": "media",
-          "server": "server",
-          "browser": ""
-        },
+        "outputPath": "dist/apps/marcolongo.cloud",
         "stylePreprocessorOptions": {
           "includePaths": ["libs/common-ui/src/styles"]
         },
@@ -90,6 +85,9 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "proxyConfig": "apps/marcolongo.cloud/proxy.conf.json"
+      },
       "dependsOn": [
         {
           "projects": ["common-ui"],
@@ -210,6 +208,8 @@
         "configDir": "apps/marcolongo.cloud/.storybook",
         "browserTarget": "marcolongo.cloud:build",
         "compodoc": false,
+        "debugWebpack": true,
+        "loglevel": "verbose",
         "assets": [
           "apps/marcolongo.cloud/src/assets",
           {
@@ -237,6 +237,8 @@
         "outputDir": "dist/storybook/marcolongo.cloud",
         "configDir": "apps/marcolongo.cloud/.storybook",
         "browserTarget": "marcolongo.cloud:build",
+        "debugWebpack": true,
+        "loglevel": "verbose",
         "compodoc": false,
         "assets": [
           "apps/marcolongo.cloud/src/assets",
