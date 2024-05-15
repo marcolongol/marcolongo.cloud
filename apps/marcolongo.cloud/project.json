@@ -16,7 +16,12 @@
         }
       ],
       "options": {
-        "outputPath": "dist/apps/marcolongo.cloud",
+        "outputPath": {
+          "base": "dist/apps/marcolongo.cloud",
+          "media": "media",
+          "server": "server",
+          "browser": ""
+        },
         "stylePreprocessorOptions": {
           "includePaths": ["libs/common-ui/src/styles"]
         },
