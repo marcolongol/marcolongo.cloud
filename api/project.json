@@ -4,6 +4,22 @@
   "projectType": "application",
   "sourceRoot": "api/api",
   "targets": {
+    "serve": {
+      "executor": "@nxlv/python:run-commands",
+      "options": {
+        "command": "poetry run uvicorn api.main:app --reload",
+        "cwd": "api"
+      },
+      "configurations": {
+        "production": {
+          "command": "poetry run uvicorn api.main:app --host 0.0.0.0 --port 8000"
+        },
+        "development": {
+          "command": "poetry run uvicorn api.main:app --reload"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
     "lock": {
       "executor": "@nxlv/python:run-commands",
       "options": {
