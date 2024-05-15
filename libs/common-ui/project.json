@@ -13,11 +13,21 @@
           {
             "bgColor": "bgBlack",
             "color": "white",
-            "command": "echo Copying WebViewer files to test folder",
-            "description": "Copy WebViewer files to test folder"
+            "command": "cp -r ./node_modules/@pdftron/webviewer/public/* ./libs/common-ui/webviewer/src/assets/webviewer",
+            "description": "Copy WebViewer public folder to assets"
           },
-          "cp -r ./node_modules/@pdftron/webviewer/public/* ./libs/common-ui/webviewer/src/assets/webviewer",
-          "cp ./node_modules/@pdftron/webviewer/webviewer.min.js ./libs/common-ui/webviewer/src/assets/webviewer"
+          {
+            "bgColor": "bgBlack",
+            "color": "white",
+            "command": "cp ./node_modules/@pdftron/webviewer/webviewer.min.js ./libs/common-ui/webviewer/src/assets/webviewer",
+            "description": "Copy WebViewer min.js file to assets"
+          },
+          {
+            "bgColor": "bgBlack",
+            "color": "white",
+            "command": "cp -r ./node_modules/@fortawesome/fontawesome-free/webfonts/* ./libs/common-ui/src/assets/webfonts",
+            "description": "Copy fontawesome webfonts folder to assets"
+          }
         ]
       }
     },
@@ -90,7 +100,9 @@
         "outputDir": "dist/storybook/common-ui",
         "configDir": "libs/common-ui/.storybook",
         "browserTarget": "common-ui:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "assets": ["libs/common-ui/src/assets"],
+        "styles": ["libs/common-ui/src/styles/common-ui/themes.scss"]
       },
       "configurations": {
         "ci": {
