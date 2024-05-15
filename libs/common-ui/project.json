@@ -27,7 +27,7 @@
       "dependsOn": ["prebuild", "core:build"],
       "options": {
         "project": "libs/common-ui/ng-package.json",
-        "tailwindConfig": "libs/common-ui/tailwind.config.js"
+        "tailwindConfig": "libs/common-ui/tailwind.config.ts"
       },
       "configurations": {
         "production": {

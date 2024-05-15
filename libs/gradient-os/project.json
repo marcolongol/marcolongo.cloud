@@ -11,7 +11,7 @@
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
         "project": "libs/gradient-os/ng-package.json",
-        "tailwindConfig": "libs/gradient-os/tailwind.config.js"
+        "tailwindConfig": "libs/gradient-os/tailwind.config.ts"
       },
       "configurations": {
         "production": {
