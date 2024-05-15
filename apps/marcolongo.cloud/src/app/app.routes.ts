@@ -5,7 +5,8 @@ export const appRoutes: Route[] = [
     path: '',
     title: 'Home',
     data: { label: 'Home', icon: 'home' },
-    loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent),
+    loadComponent: () =>
+      import('./components/home/home.component').then((m) => m.HomeComponent),
   },
   {
     path: 'webviewer',
