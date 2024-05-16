@@ -2,6 +2,26 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.0.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.5.0...marcolongo.cloud-v1.0.0) (2024-05-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** Update dependency eslint-plugin-unicorn to v53 (#142)
+
+* **deps:** Update dependency eslint-plugin-unicorn to v53 ([#142](https://github.com/marcolongol/marcolongo.cloud/issues/142)) ([840e9e3](https://github.com/marcolongol/marcolongo.cloud/commit/840e9e36f93f17cd6b8af4c62105846a91ee958c))
+
+
+### ✨ Features
+
+* **api:** add `api` project, proxy, `container`, etc... ([#163](https://github.com/marcolongol/marcolongo.cloud/issues/163)) ([8dfc33e](https://github.com/marcolongol/marcolongo.cloud/commit/8dfc33ec1f8c287159795f3910cb13354fe70937))
+* **marcolongo.cloud:** add route titles ([#144](https://github.com/marcolongol/marcolongo.cloud/issues/144)) ([1d017f4](https://github.com/marcolongol/marcolongo.cloud/commit/1d017f43f685f1c2ac3d68baaf199cc3b72ee021))
+
+
+### 🐞 Bug Fixes
+
+* **common-ui:** use tree-shakeable `APP_ROUTES` injection token ([#141](https://github.com/marcolongol/marcolongo.cloud/issues/141)) ([6bfbb17](https://github.com/marcolongol/marcolongo.cloud/commit/6bfbb17e9ec087bb82587b413518a3caa7a729be))
+
 ## [0.5.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.4.1...marcolongo.cloud-v0.5.0) (2024-05-08)
 
 
