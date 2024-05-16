@@ -113,7 +113,7 @@
     "test-storybook": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "test-storybook -c libs/common-ui/.storybook --url=http://localhost:4400"
+        "command": "test-storybook -c libs/common-ui/.storybook --url=http://localhost:4401"
       }
     },
     "static-storybook": {

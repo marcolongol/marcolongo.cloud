@@ -33,20 +33,69 @@ docker_build(
     target="development",
 )
 
+
+docker_build(
+    "marcolongo.cloud-api",
+    context=".",
+    dockerfile="./api/Dockerfile",
+    only=[
+        "./api",
+        "./poetry.toml",
+        "./pyproject.toml",
+    ],
+    live_update=[
+        sync("./api", "/app/api"),
+        sync("./poetry.toml", "/app/poetry.toml"),
+        sync("./pyproject.toml", "/app/pyproject.toml"),
+        run("poetry install", trigger=["./poetry.toml", "./pyproject.toml"]),
+    ],
+    target="development",
+)
+
 k8s_yaml(
     helm(
         "./chart",
-        name="marcolongo-cloud-dev",
-        namespace="marcolongo-cloud-dev",
+        name="marcolongo-cloud",
+        namespace="marcolongo-cloud",
         values=["./chart/values-dev.yaml"],
     )
 )
 
-k8s_resource("marcolongo-cloud-dev", port_forwards=port_forward(4200, name="web"))
+k8s_resource("marcolongo-cloud-app", port_forwards=port_forward(4200, name="web"))
+k8s_resource("marcolongo-cloud-api", port_forwards=port_forward(8000, name="api"))
 
 local_resource(
-    "storybook",
-    serve_cmd="npx nx run-many -t storybook --all --parallel 4 --verbose",
+    "marcolongo.cloud:storybook",
+    serve_cmd="npx nx run marcolongo.cloud:storybook",
+    links=[link("http://localhost:4400", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
+    auto_init=False,
+    labels=["storybook"],
 )
 
+local_resource(
+    "common-ui:storybook",
+    serve_cmd="npx nx run common-ui:storybook",
+    links=[link("http://localhost:4401", "storybook")],
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    auto_init=False,
+    labels=["storybook"],
+)
+
+local_resource(
+    "core:storybook",
+    serve_cmd=" npx nx run core:storybook",
+    links=[link("http://localhost:4402", "storybook")],
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    auto_init=False,
+    labels=["storybook"],
+)
+
+local_resource(
+    "gradient-os:storybook",
+    serve_cmd="npx nx run gradient-os:storybook",
+    links=[link("http://localhost:4403", "storybook")],
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    auto_init=False,
+    labels=["storybook"],
+)

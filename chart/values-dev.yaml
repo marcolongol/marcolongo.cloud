@@ -5,7 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: marcolongo.cloud-app
+  repositoryApp: marcolongo.cloud-app
+  repositoryApi: marcolongo.cloud-api
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   # tag: 'latest'
@@ -43,8 +44,10 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 4200
-  targetPort: 4200
+  appPort: 4200
+  appTargetPort: 4200
+  apiPort: 8000
+  apiTargetPort: 8000
 
 ingress:
   enabled: false

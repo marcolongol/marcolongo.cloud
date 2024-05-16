@@ -5,30 +5,38 @@ export const appRoutes: Route[] = [
     path: '',
     title: 'Home',
     data: { label: 'Home', icon: 'home' },
-    loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent),
-  },
-  {
-    path: 'webviewer',
-    title: 'WebViewer',
-    data: { label: 'WebViewer', icon: 'web' },
     loadComponent: () =>
-      import('@marcolongo.cloud/common-ui/webviewer').then(
-        (m) => m.WebViewerComponent,
-      ),
+      import('./components/home/home.component').then((m) => m.HomeComponent),
   },
   {
-    path: 'gOS',
-    title: 'Gradient OS',
-    data: { label: 'Gradient OS', icon: 'gradient' },
-    loadChildren: () =>
-      import('@marcolongo.cloud/gradient-os').then((m) => m.gradientRoutes),
+    path: 'SQLi',
+    title: 'SQL Injection',
+    data: { label: 'SQL Injection', icon: 'database' },
+    loadComponent: () =>
+      import('./components/sqli/sqli.component').then((m) => m.SqliComponent),
   },
-  {
-    path: 'about',
-    title: 'About',
-    data: { label: 'About', icon: 'info' },
-    redirectTo: '',
-  },
+  // {
+  //   path: 'webviewer',
+  //   title: 'WebViewer',
+  //   data: { label: 'WebViewer', icon: 'web' },
+  //   loadComponent: () =>
+  //     import('@marcolongo.cloud/common-ui/webviewer').then(
+  //       (m) => m.WebViewerComponent,
+  //     ),
+  // },
+  // {
+  //   path: 'gOS',
+  //   title: 'Gradient OS',
+  //   data: { label: 'Gradient OS', icon: 'gradient' },
+  //   loadChildren: () =>
+  //     import('@marcolongo.cloud/gradient-os').then((m) => m.gradientRoutes),
+  // },
+  // {
+  //   path: 'about',
+  //   title: 'About',
+  //   data: { label: 'About', icon: 'info' },
+  //   redirectTo: '',
+  // },
   {
     path: '**',
     title: 'Not Found',
