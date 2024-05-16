@@ -64,3 +64,38 @@ k8s_yaml(
 k8s_resource("marcolongo-cloud-app", port_forwards=port_forward(4200, name="web"))
 k8s_resource("marcolongo-cloud-api", port_forwards=port_forward(8000, name="api"))
 
+local_resource(
+    "marcolongo.cloud:storybook",
+    serve_cmd="npx nx run marcolongo.cloud:storybook",
+    links=[link("http://localhost:4400", "storybook")],
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    auto_init=False,
+    labels=["storybook"],
+)
+
+local_resource(
+    "common-ui:storybook",
+    serve_cmd="npx nx run common-ui:storybook",
+    links=[link("http://localhost:4401", "storybook")],
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    auto_init=False,
+    labels=["storybook"],
+)
+
+local_resource(
+    "core:storybook",
+    serve_cmd=" npx nx run core:storybook",
+    links=[link("http://localhost:4402", "storybook")],
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    auto_init=False,
+    labels=["storybook"],
+)
+
+local_resource(
+    "gradient-os:storybook",
+    serve_cmd="npx nx run gradient-os:storybook",
+    links=[link("http://localhost:4403", "storybook")],
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    auto_init=False,
+    labels=["storybook"],
+)

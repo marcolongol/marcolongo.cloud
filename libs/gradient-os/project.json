@@ -75,7 +75,7 @@
     "test-storybook": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "test-storybook -c libs/gradient-os/.storybook --url=http://localhost:4400"
+        "command": "test-storybook -c libs/gradient-os/.storybook --url=http://localhost:4403"
       }
     },
     "static-storybook": {
