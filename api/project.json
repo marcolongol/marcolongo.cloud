@@ -69,7 +69,7 @@
     },
     "test": {
       "executor": "@nxlv/python:run-commands",
-      "outputs": ["{workspaceRoot}/coverage/api"],
+      "outputs": ["{workspaceRoot}/coverage/api", "{workspaceRoot}/reports/api"],
       "options": {
         "command": "poetry run pytest tests/",
         "cwd": "api"
