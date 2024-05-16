@@ -86,7 +86,8 @@
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "options": {
-        "proxyConfig": "apps/marcolongo.cloud/proxy.conf.json"
+        "proxyConfig": "apps/marcolongo.cloud/proxy.conf.json",
+        "verbose": true
       },
       "dependsOn": [
         {
