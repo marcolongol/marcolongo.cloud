@@ -2,6 +2,30 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.0.0](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v1.2.0...common-ui-v2.0.0) (2024-05-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** Update dependency eslint-plugin-unicorn to v53 (#142)
+
+* **deps:** Update dependency eslint-plugin-unicorn to v53 ([#142](https://github.com/marcolongol/marcolongo.cloud/issues/142)) ([840e9e3](https://github.com/marcolongol/marcolongo.cloud/commit/840e9e36f93f17cd6b8af4c62105846a91ee958c))
+
+
+### ✨ Features
+
+* **api:** add `api` project, proxy, `container`, etc... ([#163](https://github.com/marcolongol/marcolongo.cloud/issues/163)) ([8dfc33e](https://github.com/marcolongol/marcolongo.cloud/commit/8dfc33ec1f8c287159795f3910cb13354fe70937))
+
+
+### 🐞 Bug Fixes
+
+* add secondary library entrypoints to `tsconfig.spec.json` ([#153](https://github.com/marcolongol/marcolongo.cloud/issues/153)) ([720b4ef](https://github.com/marcolongol/marcolongo.cloud/commit/720b4eff7f966193ff9c1c276b504e03ac826363))
+* **common-ui:** use tree-shakeable `APP_ROUTES` injection token ([#141](https://github.com/marcolongol/marcolongo.cloud/issues/141)) ([6bfbb17](https://github.com/marcolongol/marcolongo.cloud/commit/6bfbb17e9ec087bb82587b413518a3caa7a729be))
+* **deps:** update nrwl monorepo to v19.0.2 ([#139](https://github.com/marcolongol/marcolongo.cloud/issues/139)) ([caad3e4](https://github.com/marcolongol/marcolongo.cloud/commit/caad3e41a224e4485593b00746462881d3b9d5b1))
+* **deps:** update nrwl monorepo to v19.0.3 ([#147](https://github.com/marcolongol/marcolongo.cloud/issues/147)) ([4cc601c](https://github.com/marcolongol/marcolongo.cloud/commit/4cc601c41c78e583b3a0bc049a44ea428961a2cd))
+* **deps:** update nrwl monorepo to v19.0.4 ([#160](https://github.com/marcolongol/marcolongo.cloud/issues/160)) ([450f028](https://github.com/marcolongol/marcolongo.cloud/commit/450f028d8c573be0f3bbd9e45bfd0992bbeaf311))
+* tailwind references for libraries ([#155](https://github.com/marcolongol/marcolongo.cloud/issues/155)) ([d0f5e78](https://github.com/marcolongol/marcolongo.cloud/commit/d0f5e789319150eb889a41b6a9e6b526670a64ae))
+
 ## [1.2.0](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v1.1.0...common-ui-v1.2.0) (2024-05-09)
 
 
