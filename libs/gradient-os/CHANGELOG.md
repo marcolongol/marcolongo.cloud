@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.0.2](https://github.com/marcolongol/marcolongo.cloud/compare/gradient-os-v2.0.1...gradient-os-v2.0.2) (2024-05-22)
+
+
+### 🐞 Bug Fixes
+
+* **deps:** update nrwl monorepo to v19.0.6 ([#192](https://github.com/marcolongol/marcolongo.cloud/issues/192)) ([5a5604c](https://github.com/marcolongol/marcolongo.cloud/commit/5a5604cd74a4b45974552d342e758e57f45ec084))
+
 ## [2.0.1](https://github.com/marcolongol/marcolongo.cloud/compare/gradient-os-v2.0.0...gradient-os-v2.0.1) (2024-05-22)
 
 
