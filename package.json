@@ -70,6 +70,7 @@
     "@nestjs/testing": "^10.0.2",
     "@nx-tools/container-metadata": "^6.0.0",
     "@nx-tools/nx-container": "^6.0.0",
+    "@nx/angular": "^19.0.8",
     "@nx/cypress": "19.0.7",
     "@nx/eslint": "19.0.7",
     "@nx/eslint-plugin": "19.0.7",
