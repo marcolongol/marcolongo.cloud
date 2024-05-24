@@ -76,7 +76,7 @@ k8s_resource(
 )
 
 local_resource(
-    "marcolongo.cloud:storybook",
+    "marcolongo.cloud",
     serve_cmd="npx nx run marcolongo.cloud:storybook",
     links=[link("http://localhost:4400", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
@@ -85,7 +85,7 @@ local_resource(
 )
 
 local_resource(
-    "common-ui:storybook",
+    "common-ui",
     serve_cmd="npx nx run common-ui:storybook",
     links=[link("http://localhost:4401", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
@@ -94,7 +94,7 @@ local_resource(
 )
 
 local_resource(
-    "core:storybook",
+    "core",
     serve_cmd=" npx nx run core:storybook",
     links=[link("http://localhost:4402", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
@@ -103,10 +103,24 @@ local_resource(
 )
 
 local_resource(
-    "gradient-os:storybook",
+    "gradient-os",
     serve_cmd="npx nx run gradient-os:storybook",
     links=[link("http://localhost:4403", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
     auto_init=False,
     labels=["storybook"],
+)
+
+local_resource(
+  "test:unit",
+  serve_cmd="npm run test:unit -- --watch --parallel 10",
+  trigger_mode=TRIGGER_MODE_MANUAL,
+  labels=["tests"],
+)
+
+local_resource(
+  "test:e2e",
+  cmd="npm run test:e2e -- --parallel 10",
+  trigger_mode=TRIGGER_MODE_MANUAL,
+  labels=["tests"],
 )

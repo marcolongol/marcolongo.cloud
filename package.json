@@ -14,7 +14,9 @@
     "serve:api:dev": "nx run marcolongo.cloud-api:serve:development --skip-nx-cache",
     "serve:api:prod": "nx run marcolongo.cloud-api:serve:production --skip-nx-cache",
     "serve:app:dev": "nx run marcolongo.cloud:serve:development --skip-nx-cache",
-    "serve:app:prod": "nx run marcolongo.cloud:serve:production --skip-nx-cache"
+    "serve:app:prod": "nx run marcolongo.cloud:serve:production --skip-nx-cache",
+    "test:e2e": "nx run-many --target=e2e --all --skip-nx-cache",
+    "test:unit": "nx run-many --target=test --all --skip-nx-cache --configuration ci"
   },
   "private": true,
   "browserslist": [
