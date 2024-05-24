@@ -44,8 +44,9 @@
           "tagPrefix": "core-v",
           "postTargets": ["github"]
         },
-      "options": {
-        "preset": "conventionalcommits"
+        "options": {
+          "preset": "conventionalcommits"
+        }
       }
     },
     "github": {

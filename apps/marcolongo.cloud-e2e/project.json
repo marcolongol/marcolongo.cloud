@@ -16,9 +16,10 @@
         "production": {
           "tagPrefix": "marcolongo.cloud-e2e-v",
           "postTargets": ["github"]
+        },
+        "options": {
+          "preset": "conventionalcommits"
         }
-      "options": {
-        "preset": "conventionalcommits"
       }
     },
     "github": {
