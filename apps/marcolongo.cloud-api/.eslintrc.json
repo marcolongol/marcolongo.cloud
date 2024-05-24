@@ -4,6 +4,8 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "plugins": ["nestjs"],
+      "extends": ["plugin:nestjs/recommended"],
       "rules": {}
     },
     {
