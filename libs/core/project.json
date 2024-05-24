@@ -43,7 +43,9 @@
         "production": {
           "tagPrefix": "core-v",
           "postTargets": ["github"]
-        }
+        },
+      "options": {
+        "preset": "conventionalcommits"
       }
     },
     "github": {

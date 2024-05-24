@@ -63,7 +63,8 @@
       "executor": "@jscutlery/semver:version",
       "options": {
         "tagPrefix": "common-ui-v",
-        "postTargets": ["github"]
+        "postTargets": ["github"],
+        "preset": "conventionalcommits"
       }
     },
     "github": {

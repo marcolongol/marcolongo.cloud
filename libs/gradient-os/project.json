@@ -37,7 +37,8 @@
       "executor": "@jscutlery/semver:version",
       "options": {
         "tagPrefix": "gradient-os-v",
-        "postTargets": ["github"]
+        "postTargets": ["github"],
+        "preset": "conventionalcommits"
       }
     },
     "github": {

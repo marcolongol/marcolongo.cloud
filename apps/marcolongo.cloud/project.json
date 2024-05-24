@@ -190,6 +190,7 @@
       "options": {
         "tagPrefix": "marcolongo.cloud-v",
         "postTargets": ["github"]
+        "preset": "conventionalcommits"
       }
     },
     "github": {

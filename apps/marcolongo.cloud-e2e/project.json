@@ -17,6 +17,8 @@
           "tagPrefix": "marcolongo.cloud-e2e-v",
           "postTargets": ["github"]
         }
+      "options": {
+        "preset": "conventionalcommits"
       }
     },
     "github": {
