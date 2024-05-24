@@ -23,6 +23,7 @@ const config: Configuration = {
       assets: ['./src/assets'],
       optimization: true,
       outputHashing: 'none',
+      generatePackageJson: true,
     }),
   ],
 };

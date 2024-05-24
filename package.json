@@ -4,11 +4,17 @@
   "license": "MIT",
   "scripts": {
     "build": "nx run-many --target=build --all --skip-nx-cache",
+    "build:api:dev": "nx run marcolongo.cloud-api:build:development --skip-nx-cache",
+    "build:api:prod": "nx run marcolongo.cloud-api:build:production --skip-nx-cache",
+    "build:app:dev": "nx run marcolongo.cloud:build:development --skip-nx-cache",
+    "build:app:prod": "nx run marcolongo.cloud:build:production --skip-nx-cache",
     "lint": "nx run-many --target=lint --all --skip-nx-cache",
     "prepare": "husky",
-    "start": "nx run-many --target=serve --all --skip-nx-cache",
-    "start:api": "nx run marcolongo.cloud-api:serve:development --skip-nx-cache",
-    "start:web": "nx run marcolongo.cloud:serve:development --skip-nx-cache"
+    "serve": "nx run-many --target=serve --all --skip-nx-cache",
+    "serve:api:dev": "nx run marcolongo.cloud-api:serve:development --skip-nx-cache",
+    "serve:api:prod": "nx run marcolongo.cloud-api:serve:production --skip-nx-cache",
+    "serve:app:dev": "nx run marcolongo.cloud:serve:development --skip-nx-cache",
+    "serve:app:prod": "nx run marcolongo.cloud:serve:production --skip-nx-cache"
   },
   "private": true,
   "browserslist": [

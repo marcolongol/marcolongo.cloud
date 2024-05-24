@@ -9,52 +9,44 @@ print(
 
 allow_k8s_contexts("admin@marcolongo.cloud")
 
+
 docker_build(
     "marcolongo.cloud-app",
     context=".",
     dockerfile="./apps/marcolongo.cloud/Dockerfile",
     only=[
-        "./apps",
-        "./libs",
-        "./package.json",
-        "./nx.json",
-        "./tsconfig.base.json",
-        "./.eslintrc.json",
+        "./dist/apps/marcolongo.cloud/browser",
     ],
     live_update=[
-        sync("./apps", "/app/apps"),
-        sync("./libs", "/app/libs"),
-        sync("./package.json", "/app/package.json"),
-        sync("./nx.json", "/app/nx.json"),
-        sync("./.eslintrc.json", "/app/.eslintrc.json"),
-        sync("./tsconfig.base.json", "/app/tsconfig.base.json"),
-        run("npm install", trigger=["./package.json"]),
+      sync("./dist/apps/marcolongo.cloud/browser", "/usr/share/nginx/html/")
     ],
-    target="development",
 )
+
+local_resource(
+    "build:app:dev",
+    serve_cmd="npm run build:app:dev -- --watch",
+    labels=["app"],
+    trigger_mode=TRIGGER_MODE_AUTO,
+)
+
 
 docker_build(
     "marcolongo.cloud-api",
     context=".",
     dockerfile="./apps/marcolongo.cloud-api/Dockerfile",
     only=[
-        "./apps",
-        "./libs",
-        "./package.json",
-        "./nx.json",
-        "./tsconfig.base.json",
-        "./.eslintrc.json",
+        "./dist/apps/marcolongo.cloud-api",
     ],
     live_update=[
-        sync("./apps", "/app/apps"),
-        sync("./libs", "/app/libs"),
-        sync("./package.json", "/app/package.json"),
-        sync("./nx.json", "/app/nx.json"),
-        sync("./.eslintrc.json", "/app/.eslintrc.json"),
-        sync("./tsconfig.base.json", "/app/tsconfig.base.json"),
-        run("npm install", trigger=["./package.json"]),
+      sync("./dist/apps/marcolongo.cloud-api", "/app")
     ],
-    target="development",
+)
+
+local_resource(
+    "build:api:dev",
+    serve_cmd="npm run build:api:dev -- --watch",
+    labels=["api"],
+    trigger_mode=TRIGGER_MODE_AUTO,
 )
 
 
@@ -72,7 +64,7 @@ k8s_resource(
     port_forwards=[
         port_forward(4200, name="web"),
     ],
-    labels=["marcolongo.cloud"],
+    labels=["app"],
 )
 
 k8s_resource(
@@ -80,7 +72,7 @@ k8s_resource(
     port_forwards=[
         port_forward(3000, name="api"),
     ],
-    labels=["marcolongo.cloud"],
+    labels=["api"],
 )
 
 local_resource(
