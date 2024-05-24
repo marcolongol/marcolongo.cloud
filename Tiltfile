@@ -9,48 +9,47 @@ print(
 
 allow_k8s_contexts("admin@marcolongo.cloud")
 
+
 docker_build(
     "marcolongo.cloud-app",
     context=".",
     dockerfile="./apps/marcolongo.cloud/Dockerfile",
     only=[
-        "./apps",
-        "./libs",
-        "./package.json",
-        "./nx.json",
-        "./tsconfig.base.json",
-        "./.eslintrc.json",
+        "./dist/apps/marcolongo.cloud/browser",
     ],
     live_update=[
-        sync("./apps", "/app/apps"),
-        sync("./libs", "/app/libs"),
-        sync("./package.json", "/app/package.json"),
-        sync("./nx.json", "/app/nx.json"),
-        sync("./.eslintrc.json", "/app/.eslintrc.json"),
-        sync("./tsconfig.base.json", "/app/tsconfig.base.json"),
-        run("npm install", trigger=["./package.json"]),
+      sync("./dist/apps/marcolongo.cloud/browser", "/usr/share/nginx/html/")
     ],
-    target="development",
+)
+
+local_resource(
+    "build:app:dev",
+    serve_cmd="npm run build:app:dev -- --watch",
+    labels=["app"],
+    trigger_mode=TRIGGER_MODE_AUTO,
 )
 
 
 docker_build(
     "marcolongo.cloud-api",
     context=".",
-    dockerfile="./api/Dockerfile",
+    dockerfile="./apps/marcolongo.cloud-api/Dockerfile",
     only=[
-        "./api",
-        "./poetry.toml",
-        "./pyproject.toml",
+        "./dist/apps/marcolongo.cloud-api",
     ],
     live_update=[
-        sync("./api", "/app/api"),
-        sync("./poetry.toml", "/app/poetry.toml"),
-        sync("./pyproject.toml", "/app/pyproject.toml"),
-        run("poetry install", trigger=["./poetry.toml", "./pyproject.toml"]),
+      sync("./dist/apps/marcolongo.cloud-api", "/app")
     ],
-    target="development",
+    target="dev"
 )
+
+local_resource(
+    "build:api:dev",
+    serve_cmd="npm run build:api:dev -- --watch",
+    labels=["api"],
+    trigger_mode=TRIGGER_MODE_AUTO,
+)
+
 
 k8s_yaml(
     helm(
@@ -61,11 +60,24 @@ k8s_yaml(
     )
 )
 
-k8s_resource("marcolongo-cloud-app", port_forwards=port_forward(4200, name="web"))
-k8s_resource("marcolongo-cloud-api", port_forwards=port_forward(8000, name="api"))
+k8s_resource(
+    "marcolongo-cloud-app",
+    port_forwards=[
+        port_forward(4200, name="web"),
+    ],
+    labels=["app"],
+)
+
+k8s_resource(
+    "marcolongo-cloud-api",
+    port_forwards=[
+        port_forward(3000, name="api"),
+    ],
+    labels=["api"],
+)
 
 local_resource(
-    "marcolongo.cloud:storybook",
+    "marcolongo.cloud",
     serve_cmd="npx nx run marcolongo.cloud:storybook",
     links=[link("http://localhost:4400", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
@@ -74,7 +86,7 @@ local_resource(
 )
 
 local_resource(
-    "common-ui:storybook",
+    "common-ui",
     serve_cmd="npx nx run common-ui:storybook",
     links=[link("http://localhost:4401", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
@@ -83,7 +95,7 @@ local_resource(
 )
 
 local_resource(
-    "core:storybook",
+    "core",
     serve_cmd=" npx nx run core:storybook",
     links=[link("http://localhost:4402", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
@@ -92,10 +104,24 @@ local_resource(
 )
 
 local_resource(
-    "gradient-os:storybook",
+    "gradient-os",
     serve_cmd="npx nx run gradient-os:storybook",
     links=[link("http://localhost:4403", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
     auto_init=False,
     labels=["storybook"],
+)
+
+local_resource(
+  "test:unit",
+  serve_cmd="npm run test:unit -- --watch --parallel 10",
+  trigger_mode=TRIGGER_MODE_MANUAL,
+  labels=["tests"],
+)
+
+local_resource(
+  "test:e2e",
+  cmd="npm run test:e2e -- --parallel 10",
+  trigger_mode=TRIGGER_MODE_MANUAL,
+  labels=["tests"],
 )

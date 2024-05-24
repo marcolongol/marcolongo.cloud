@@ -42,15 +42,6 @@ jobs:
 
       - run: npm ci
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-
-      - uses: snok/install-poetry@v1
-
-      - run: poetry install
-
       - uses: nrwl/nx-set-shas@v4
 
       - run: git branch --track main origin/main
