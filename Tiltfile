@@ -33,6 +33,31 @@ docker_build(
     target="development",
 )
 
+docker_build(
+    "marcolongo.cloud-api",
+    context=".",
+    dockerfile="./apps/marcolongo.cloud-api/Dockerfile",
+    only=[
+        "./apps",
+        "./libs",
+        "./package.json",
+        "./nx.json",
+        "./tsconfig.base.json",
+        "./.eslintrc.json",
+    ],
+    live_update=[
+        sync("./apps", "/app/apps"),
+        sync("./libs", "/app/libs"),
+        sync("./package.json", "/app/package.json"),
+        sync("./nx.json", "/app/nx.json"),
+        sync("./.eslintrc.json", "/app/.eslintrc.json"),
+        sync("./tsconfig.base.json", "/app/tsconfig.base.json"),
+        run("npm install", trigger=["./package.json"]),
+    ],
+    target="development",
+)
+
+
 k8s_yaml(
     helm(
         "./chart",
@@ -43,9 +68,17 @@ k8s_yaml(
 )
 
 k8s_resource(
-    "marcolongo-cloud",
+    "marcolongo-cloud-app",
     port_forwards=[
         port_forward(4200, name="web"),
+    ],
+    labels=["marcolongo.cloud"],
+)
+
+k8s_resource(
+    "marcolongo-cloud-api",
+    port_forwards=[
+        port_forward(3000, name="api"),
     ],
     labels=["marcolongo.cloud"],
 )

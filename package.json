@@ -7,6 +7,7 @@
     "lint": "nx run-many --target=lint --all --skip-nx-cache",
     "prepare": "husky",
     "start": "nx run-many --target=serve --all --skip-nx-cache",
+    "start:api": "nx run marcolongo.cloud-api:serve:development --skip-nx-cache",
     "start:web": "nx run marcolongo.cloud:serve:development --skip-nx-cache"
   },
   "private": true,

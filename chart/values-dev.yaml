@@ -46,8 +46,8 @@ service:
   type: ClusterIP
   appPort: 4200
   appTargetPort: 4200
-  apiPort: 8000
-  apiTargetPort: 8000
+  apiPort: 3000
+  apiTargetPort: 3000
 
 ingress:
   enabled: false
@@ -78,15 +78,6 @@ resources:
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
-
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
-readinessProbe:
-  httpGet:
-    path: /
-    port: http
 
 autoscaling:
   enabled: false
