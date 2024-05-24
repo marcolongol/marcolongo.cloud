@@ -40,6 +40,7 @@ docker_build(
     live_update=[
       sync("./dist/apps/marcolongo.cloud-api", "/app")
     ],
+    target="dev"
 )
 
 local_resource(
