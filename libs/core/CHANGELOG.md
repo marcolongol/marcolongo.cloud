@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.0.3](https://github.com/marcolongol/marcolongo.cloud/compare/core-2.0.2...core-2.0.3) (2024-05-24)
+
+
+### 🐞 Bug Fixes
+
+* **deps:** update nrwl monorepo to v19.0.7 ([#200](https://github.com/marcolongol/marcolongo.cloud/issues/200)) ([a161db8](https://github.com/marcolongol/marcolongo.cloud/commit/a161db8f31d9582d4e0bef618404689a90b5b0c3))
+
 ## [2.0.2](https://github.com/marcolongol/marcolongo.cloud/compare/core-2.0.1...core-2.0.2) (2024-05-22)
 
 
