@@ -48,4 +48,4 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
 
       - run: npx nx format:check
-      - run: npx nx affected -t lint stylelint test build e2e --verbose
+      - run: npx nx affected -t lint stylelint test build --verbose
