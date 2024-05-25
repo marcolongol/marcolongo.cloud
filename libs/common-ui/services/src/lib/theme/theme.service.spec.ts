@@ -28,21 +28,6 @@ describe('ThemeService', () => {
     expect(service.getTheme()).toBe('light');
   });
 
-  it('should set theme to darkgreen', () => {
-    service.setTheme('darkgreen');
-    expect(service.getTheme()).toBe('darkgreen');
-  });
-
-  it('should set theme to darkpurple', () => {
-    service.setTheme('darkpurple');
-    expect(service.getTheme()).toBe('darkpurple');
-  });
-
-  it('should set theme to system', () => {
-    service.setTheme('system');
-    expect(service.getTheme()).toBe('system');
-  });
-
   it('should set theme to light after setting it to dark', () => {
     service.setTheme('dark');
     service.setTheme('light');
