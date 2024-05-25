@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.1.0](https://github.com/marcolongol/marcolongo.cloud/compare/gradient-os-v2.0.4...gradient-os-v2.1.0) (2024-05-25)
+
+
+### Features
+
+* **marcolongo.cloud-api:** nestjs api, package updates ([#205](https://github.com/marcolongol/marcolongo.cloud/issues/205)) ([a65a343](https://github.com/marcolongol/marcolongo.cloud/commit/a65a343f338e4e292369f84ee3fe3d8131a80fdf))
+
 ## [2.0.4](https://github.com/marcolongol/marcolongo.cloud/compare/gradient-os-v2.0.3...gradient-os-v2.0.4) (2024-05-24)
 
 
