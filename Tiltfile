@@ -123,5 +123,6 @@ local_resource(
   "test:e2e",
   cmd="npm run test:e2e -- --parallel 10",
   trigger_mode=TRIGGER_MODE_MANUAL,
+  auto_init=False,
   labels=["tests"],
 )
