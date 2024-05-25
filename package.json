@@ -15,6 +15,10 @@
     "serve:api:prod": "nx run marcolongo.cloud-api:serve:production --skip-nx-cache",
     "serve:app:dev": "nx run marcolongo.cloud:serve:development --skip-nx-cache",
     "serve:app:prod": "nx run marcolongo.cloud:serve:production --skip-nx-cache",
+    "storybook:app": "nx run marcolongo.cloud:storybook --skip-nx-cache",
+    "storybook:common-ui": "nx run common-ui:storybook --skip-nx-cache",
+    "storybook:core": "nx run core:storybook --skip-nx-cache",
+    "storybook:gradient-os": "nx run gradient-os:storybook --skip-nx-cache",
     "test:e2e": "nx run-many --target=e2e --all --skip-nx-cache",
     "test:unit": "nx run-many --target=test --all --skip-nx-cache --configuration ci"
   },

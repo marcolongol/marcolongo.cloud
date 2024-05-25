@@ -98,7 +98,7 @@ k8s_resource(
 
 local_resource(
     "marcolongo.cloud",
-    serve_cmd="npx nx run marcolongo.cloud:storybook",
+    serve_cmd="npm run storybook:app",
     links=[link("http://localhost:4400", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
     auto_init=False,
@@ -107,7 +107,7 @@ local_resource(
 
 local_resource(
     "common-ui",
-    serve_cmd="npx nx run common-ui:storybook",
+    serve_cmd="npm run storybook:common-ui",
     links=[link("http://localhost:4401", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
     auto_init=False,
@@ -116,7 +116,7 @@ local_resource(
 
 local_resource(
     "core",
-    serve_cmd=" npx nx run core:storybook",
+    serve_cmd="npm run storybook:core",
     links=[link("http://localhost:4402", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
     auto_init=False,
@@ -125,7 +125,7 @@ local_resource(
 
 local_resource(
     "gradient-os",
-    serve_cmd="npx nx run gradient-os:storybook",
+    serve_cmd="npm run storybook:gradient-os",
     links=[link("http://localhost:4403", "storybook")],
     trigger_mode=TRIGGER_MODE_MANUAL,
     auto_init=False,

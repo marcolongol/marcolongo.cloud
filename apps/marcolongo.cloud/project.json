@@ -211,8 +211,6 @@
         "configDir": "apps/marcolongo.cloud/.storybook",
         "browserTarget": "marcolongo.cloud:build",
         "compodoc": false,
-        "debugWebpack": true,
-        "loglevel": "verbose",
         "assets": [
           "apps/marcolongo.cloud/src/assets",
           {
