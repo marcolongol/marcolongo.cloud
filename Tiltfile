@@ -18,7 +18,7 @@ docker_build(
         "./dist/apps/marcolongo.cloud/browser",
     ],
     live_update=[
-      sync("./dist/apps/marcolongo.cloud/browser", "/usr/share/nginx/html/")
+        sync("./dist/apps/marcolongo.cloud/browser", "/usr/share/nginx/html/")
     ],
 )
 
@@ -37,10 +37,8 @@ docker_build(
     only=[
         "./dist/apps/marcolongo.cloud-api",
     ],
-    live_update=[
-      sync("./dist/apps/marcolongo.cloud-api", "/app")
-    ],
-    target="dev"
+    live_update=[sync("./dist/apps/marcolongo.cloud-api", "/app")],
+    target="dev",
 )
 
 local_resource(
@@ -113,16 +111,16 @@ local_resource(
 )
 
 local_resource(
-  "test:unit",
-  serve_cmd="npm run test:unit -- --watch --parallel 10",
-  trigger_mode=TRIGGER_MODE_MANUAL,
-  labels=["tests"],
+    "test:unit",
+    serve_cmd="npm run test:unit -- --watch --parallel 10",
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    labels=["tests"],
 )
 
 local_resource(
-  "test:e2e",
-  cmd="npm run test:e2e -- --parallel 10",
-  trigger_mode=TRIGGER_MODE_MANUAL,
-  auto_init=False,
-  labels=["tests"],
+    "test:e2e",
+    cmd="npm run test:e2e -- --parallel 10",
+    trigger_mode=TRIGGER_MODE_MANUAL,
+    auto_init=False,
+    labels=["tests"],
 )
