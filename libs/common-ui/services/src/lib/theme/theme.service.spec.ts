@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
+import { ALL_THEMES, InvalidThemeError } from '@marcolongo.cloud/common-ui/utils';
+
 import { ThemeService } from './theme.service';
 
 describe('ThemeService', () => {
@@ -14,29 +16,22 @@ describe('ThemeService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get theme', () => {
-    expect(service.getTheme()).toBe('light');
+  it('should have all themes', () => {
+    expect(service.allThemes).toBeTruthy();
+  });
+
+  it('should have a selected theme', () => {
+    expect(service.selectedTheme).toBeTruthy();
   });
 
   it('should set theme', () => {
-    service.setTheme('dark');
-    expect(service.getTheme()).toBe('dark');
+    service.setTheme(ALL_THEMES.LIGHT);
+    expect(service.value).toBe(ALL_THEMES.LIGHT);
   });
 
-  it('should set theme to light', () => {
-    service.setTheme('light');
-    expect(service.getTheme()).toBe('light');
-  });
-
-  it('should set theme to light after setting it to dark', () => {
-    service.setTheme('dark');
-    service.setTheme('light');
-    expect(service.getTheme()).toBe('light');
-  });
-
-  it('should set theme to dark after setting it to light', () => {
-    service.setTheme('light');
-    service.setTheme('dark');
-    expect(service.getTheme()).toBe('dark');
+  it('should throw an error if theme is invalid', () => {
+    expect(() => service.setTheme('invalid')).toThrow(
+      new InvalidThemeError('invalid'),
+    );
   });
 });
