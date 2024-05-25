@@ -23,10 +23,20 @@ docker_build(
 )
 
 local_resource(
+    "serve:app:dev",
+    serve_cmd="npm run serve:app:dev",
+    labels=["app"],
+    trigger_mode=TRIGGER_MODE_AUTO,
+    auto_init=False,
+    links=[link("http://localhost:4200", "web")],
+)
+
+local_resource(
     "build:app:dev",
     serve_cmd="npm run build:app:dev -- --watch",
     labels=["app"],
     trigger_mode=TRIGGER_MODE_AUTO,
+    auto_init=False,
 )
 
 
@@ -46,6 +56,16 @@ local_resource(
     serve_cmd="npm run build:api:dev -- --watch",
     labels=["api"],
     trigger_mode=TRIGGER_MODE_AUTO,
+    auto_init=False,
+)
+
+local_resource(
+    "serve:api:dev",
+    serve_cmd="npm run serve:api:dev",
+    labels=["api"],
+    trigger_mode=TRIGGER_MODE_AUTO,
+    auto_init=False,
+    links=[link("http://localhost:3000", "api")],
 )
 
 
@@ -64,6 +84,7 @@ k8s_resource(
         port_forward(4200, name="web"),
     ],
     labels=["app"],
+    auto_init=False,
 )
 
 k8s_resource(
@@ -72,6 +93,7 @@ k8s_resource(
         port_forward(3000, name="api"),
     ],
     labels=["api"],
+    auto_init=False,
 )
 
 local_resource(
