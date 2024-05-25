@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.1.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v1.0.1...marcolongo.cloud-v1.1.0) (2024-05-25)
+
+
+### Features
+
+* **marcolongo.cloud-api:** nestjs api, package updates ([#205](https://github.com/marcolongol/marcolongo.cloud/issues/205)) ([a65a343](https://github.com/marcolongol/marcolongo.cloud/commit/a65a343f338e4e292369f84ee3fe3d8131a80fdf))
+
 ## [1.0.1](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v1.0.0...marcolongo.cloud-v1.0.1) (2024-05-22)
 
 ## [1.0.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v0.5.0...marcolongo.cloud-v1.0.0) (2024-05-16)
