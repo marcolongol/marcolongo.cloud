@@ -54,7 +54,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should render logo', () => {
-    const logo = 'assets/marcolongo.svg';
+    const logo = 'assets/svg/marcolongo.svg';
     component.logo = logo;
     fixture.detectChanges();
     const compiled = fixture.nativeElement;

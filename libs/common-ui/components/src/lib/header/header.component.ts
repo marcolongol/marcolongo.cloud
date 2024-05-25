@@ -24,7 +24,7 @@ export class HeaderComponent {
   @Input() public title = 'marcolongo';
   @Input() @Optional() public subtitle = '.cloud';
 
-  @Input() public logo = 'assets/marcolongo.svg';
+  @Input() public logo = 'assets/svg/marcolongo.svg';
 
   public navItems = input<NavItem[]>(inject(APP_ROUTES));
 }
