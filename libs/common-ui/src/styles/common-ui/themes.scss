@@ -19,7 +19,6 @@
   --font-size: 100%;
 
   // SECTION: Layout
-  --header-height: 50px;
 
   // SECTION: Background
   --background-image: url('/assets/svg/topography.svg');
@@ -63,7 +62,7 @@ body {
   font-family: var(--font-family);
   color: var(--text-color);
 
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   background-image: var(--background-image);
 
   transition: background-color 0.5s;

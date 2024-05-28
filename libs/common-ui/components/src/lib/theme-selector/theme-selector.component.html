@@ -1,21 +1,15 @@
-<form class="mx-auto max-w-sm">
-  <select
-    class="bg-white-50 w-full rounded-xl border border-gray-300 p-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-    id="theme-selector"
-    #themeSelector
-    (change)="themeService.setTheme(themeSelector.value)"
-  >
-    @for (
-      theme of themeService.allThemes | keyvalue;
-      track theme.key;
-      let i = $index
-    ) {
-      <option
-        [selected]="themeService.selectedTheme() === theme.value"
-        [value]="theme.value"
-      >
-        {{ theme.key | titlecase }}
-      </option>
-    }
-  </select>
-</form>
+<select
+  class="rounded-xl border-gray-300 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+  id="theme-selector"
+  #themeSelector
+  (change)="themeService.setTheme(themeSelector.value)"
+>
+  @for (theme of themeService.allThemes | keyvalue; track theme.key; let i = $index) {
+    <option
+      [selected]="themeService.selectedTheme() === theme.value"
+      [value]="theme.value"
+    >
+      {{ theme.key | titlecase }}
+    </option>
+  }
+</select>
