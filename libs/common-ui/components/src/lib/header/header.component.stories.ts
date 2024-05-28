@@ -20,12 +20,12 @@ const meta: Meta<HeaderComponent> = {
         provideRouter([
           {
             path: 'home',
-            data: { label: 'Home', icon: 'home' },
+            data: { label: 'Home', icon: 'fa-home' },
             component: BlankComponent,
           },
           {
             path: 'about',
-            data: { label: 'About', icon: 'info' },
+            data: { label: 'About', icon: 'fa-info-circle' },
             component: BlankComponent,
           },
         ]),
