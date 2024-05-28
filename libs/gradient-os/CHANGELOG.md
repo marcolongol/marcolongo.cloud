@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.1.1](https://github.com/marcolongol/marcolongo.cloud/compare/gradient-os-v2.1.0...gradient-os-v2.1.1) (2024-05-28)
+
+
+### Bug Fixes
+
+* **common-ui:** reactive `ThemeSelectorComponent` ([#223](https://github.com/marcolongol/marcolongo.cloud/issues/223)) ([ff63f9c](https://github.com/marcolongol/marcolongo.cloud/commit/ff63f9c01dec1e4ff80f4ef6611db59ed6a7b3cf))
+
 ## [2.1.0](https://github.com/marcolongol/marcolongo.cloud/compare/gradient-os-v2.0.4...gradient-os-v2.1.0) (2024-05-25)
 
 
