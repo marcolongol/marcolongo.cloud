@@ -84,7 +84,6 @@
         "configDir": "libs/common-ui/.storybook",
         "browserTarget": "common-ui:build-storybook",
         "compodoc": false,
-        "loglevel": "verbose",
         "styles": ["libs/common-ui/src/styles/common-ui/themes.scss"],
         "assets": ["libs/common-ui/src/assets"]
       },

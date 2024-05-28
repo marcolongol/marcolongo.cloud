@@ -1,66 +1,47 @@
-<div
-  class="flex flex-initial flex-row items-center justify-center pl-5 pr-5 hover:cursor-pointer"
->
-  <img
-    class="transform rounded-full shadow outline outline-1 transition duration-500 ease-in-out hover:scale-110 hover:opacity-75 hover:outline-2"
-    [src]="logo"
-    alt="logo"
-  />
-</div>
+<img
+  class="mx-5 size-16 transform rounded-full bg-neutral-100 shadow-2xl outline outline-1 transition duration-500 ease-in-out hover:scale-110 hover:cursor-pointer hover:opacity-75 hover:outline-2"
+  [src]="logo()"
+  alt="logo"
+/>
 
-<div class="flex flex-initial flex-row items-center justify-center pl-5 pr-5">
-  <h1 class="text-2xl font-bold">{{ title | titlecase }}</h1>
-  @if (subtitle) {
-    <h3
-      class="pl-1 align-top text-sm font-bold tracking-tighter text-gray-500 underline"
-    >
-      {{ subtitle }}
-    </h3>
-  }
-</div>
+<h1 class="text-2xl font-bold">{{ title() | titlecase }}</h1>
+@if (subtitle()) {
+  <h3 class="align-top text-sm font-thin text-gray-500 underline">
+    {{ subtitle() | lowercase }}
+  </h3>
+}
 
-<div class="flex flex-1 items-center justify-center pl-5 pr-5">
+<ul class="mx-5 flex w-64 flex-1 divide-x-4">
   @if (navItems()) {
-    <ul class="flex flex-1 list-none flex-row">
-      <li
-        class="flex flex-1 flex-none items-center border-r-2 border-gray-300 text-center text-lg hover:cursor-pointer"
-        *ngFor="let item of navItems()"
-      >
-        <a
-          class="ml-3 mr-3 transition duration-500 ease-in-out hover:scale-110 hover:text-blue-500 hover:opacity-75 hover:outline-2"
-          [routerLink]="item.path"
-          [routerLinkActive]="['header-nav-link-active']"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >{{ item.label }}</a
-        >
-      </li>
-    </ul>
+    <li *ngFor="let item of navItems()">
+      <a
+        class="mx-3 text-lg transition duration-500 ease-in-out hover:cursor-pointer hover:text-blue-500 hover:underline hover:opacity-75"
+        [routerLink]="item.path"
+        [routerLinkActive]="['text-blue-500', 'underline']"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >{{ item.label }}
+        @if (item.icon) {
+          <i
+            class="mx-1 text-sm"
+            [ngClass]="['fas', item.icon]"
+          ></i>
+        }
+      </a>
+    </li>
   } @else {
     <ng-container *ngTemplateOutlet="noNavItems"></ng-container>
   }
-</div>
+</ul>
 
-<div class="flex flex-initial flex-row items-center justify-center">
-  <lib-theme-selector></lib-theme-selector>
-</div>
+<lib-theme-selector></lib-theme-selector>
 
 <ng-template #noNavItems>
-  <ul>
-    <li>
-      <a
-        class="header-nav-link"
-        routerLink="/home"
-        routerLinkActive="header-nav-link-active"
-        >Home</a
-      >
-    </li>
-    <li>
-      <a
-        class="header-nav-link"
-        routerLink="/about"
-        routerLinkActive="header-nav-link-active"
-        >About</a
-      >
-    </li>
-  </ul>
+  <li>
+    <a
+      class="mx-3 text-lg transition duration-500 ease-in-out hover:cursor-pointer hover:text-blue-500 hover:underline hover:opacity-75"
+      routerLink="/"
+      routerLinkActive="header-nav-link-active"
+      >Home</a
+    >
+  </li>
 </ng-template>

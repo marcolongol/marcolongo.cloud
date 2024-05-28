@@ -3,6 +3,7 @@
   "arrowParens": "always",
   "bracketSameLine": false,
   "bracketSpacing": true,
+  "singleAttributePerLine": true,
   "plugins": [
     "prettier-plugin-jsdoc",
     "prettier-plugin-package",

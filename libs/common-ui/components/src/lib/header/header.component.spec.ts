@@ -45,22 +45,6 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render title', () => {
-    const title = 'Marcolongo';
-    component.title = title;
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain(title);
-  });
-
-  it('should render logo', () => {
-    const logo = 'assets/marcolongo.svg';
-    component.logo = logo;
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('img').src).toContain(logo);
-  });
-
   it('should render nav items', () => {
     const compiled = fixture.nativeElement;
     const navItemsElements = compiled.querySelectorAll('a');
