@@ -11,6 +11,9 @@ export const appRoutes: Route[] = [
   {
     path: '**',
     title: 'Not Found',
-    redirectTo: 'not-found',
+    loadComponent: () =>
+      import('./components/not-found/not-found.component').then(
+        (m) => m.NotFoundComponent,
+      ),
   },
 ];
