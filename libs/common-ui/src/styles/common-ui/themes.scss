@@ -41,7 +41,7 @@
 }
 
 body {
-  @apply text-textPrimary bg-bgPrimary flex min-h-screen flex-col overflow-x-hidden transition-colors duration-500;
+  @apply text-textPrimary bg-bgPrimary flex min-h-screen flex-col overflow-x-hidden font-mono transition-colors duration-500;
 
   background-image: var(--background-image);
 }
