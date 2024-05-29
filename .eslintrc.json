@@ -118,8 +118,6 @@
       },
       "rules": {}
     },
-    // NOTE: https://github.com/nrwl/nx/issues/22247
-    // TODO: change to "error" once rule is stable
     {
       "files": ["*.json"],
       "parser": "jsonc-eslint-parser",
