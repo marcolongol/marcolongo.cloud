@@ -201,7 +201,10 @@
       "executor": "nx-stylelint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/marcolongo.cloud/**/*.css"]
+        "lintFilePatterns": [
+          "apps/marcolongo.cloud/**/*.css",
+          "apps/marcolongo.cloud/**/*.scss"
+        ]
       }
     },
     "storybook": {

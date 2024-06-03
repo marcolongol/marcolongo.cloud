@@ -74,7 +74,7 @@
       "executor": "nx-stylelint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/common-ui/**/*.css"]
+        "lintFilePatterns": ["libs/common-ui/**/*.scss", "libs/common-ui/**/*.css"]
       }
     },
     "storybook": {
