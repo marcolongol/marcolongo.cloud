@@ -1,6 +1,6 @@
 {
   "name": "@marcolongo.cloud/gradient-os",
-  "version": "2.1.9",
+  "version": "2.2.0",
   "peerDependencies": {
     "@angular/common": "^17.3.0 || ^18.0.0",
     "@angular/core": "^17.3.0 || ^18.0.0",

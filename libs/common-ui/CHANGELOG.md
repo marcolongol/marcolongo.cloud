@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [2.2.0](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v2.1.9...common-ui-v2.2.0) (2024-06-25)
+
+
+### Features
+
+* sticky footer, styles rework, etc... ([#242](https://github.com/marcolongol/marcolongo.cloud/issues/242)) ([460b6f2](https://github.com/marcolongol/marcolongo.cloud/commit/460b6f224723a6a3cb55dfe341dfb620b5842daf))
+
 ## [2.1.9](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v2.1.8...common-ui-v2.1.9) (2024-06-22)
 
 ## [2.1.8](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v2.1.7...common-ui-v2.1.8) (2024-06-13)
