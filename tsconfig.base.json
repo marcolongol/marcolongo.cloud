@@ -25,6 +25,7 @@
         "libs/common-ui/webviewer/src/index.ts"
       ],
       "@marcolongo.cloud/core": ["libs/core/src/index.ts"],
+      "@marcolongo.cloud/core/auth": ["libs/core/auth/src/index.ts"],
       "@marcolongo.cloud/core/utils": ["libs/core/utils/src/index.ts"],
       "@marcolongo.cloud/gradient-os": ["libs/gradient-os/src/index.ts"]
     }
