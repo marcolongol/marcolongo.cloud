@@ -3,7 +3,17 @@ import { Config } from 'tailwindcss';
 const baseConfig: Config = {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: 'var(--color-primary)',
+        secondary: 'var(--color-secondary)',
+        bgPrimary: 'var(--color-bg-primary)',
+        textPrimary: 'var(--color-text-base)',
+      },
+      fontSize: {
+        full: '100%',
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),

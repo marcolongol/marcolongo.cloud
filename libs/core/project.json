@@ -56,7 +56,7 @@
       "executor": "nx-stylelint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/core/**/*.css"]
+        "lintFilePatterns": ["libs/core/**/*.css", "libs/core/**/*.scss"]
       }
     },
     "storybook": {

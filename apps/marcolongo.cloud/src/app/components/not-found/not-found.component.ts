@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-core',
+  selector: 'app-not-found',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './core.component.html',
-  styleUrl: './core.component.scss',
+  templateUrl: './not-found.component.html',
+  styleUrl: './not-found.component.scss',
 })
-export class CoreComponent {}
+export class NotFoundComponent {}
