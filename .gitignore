@@ -39,7 +39,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-.nx/cache
+.nx
 .angular
 
 # Byte-compiled / optimized / DLL files
