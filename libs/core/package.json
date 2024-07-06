@@ -1,6 +1,6 @@
 {
   "name": "@marcolongo.cloud/core",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "peerDependencies": {
     "@angular/core": "^17.3.0 || ^18.0.0",
     "@angular/router": "~17.3.0 || ~18.0.0",
