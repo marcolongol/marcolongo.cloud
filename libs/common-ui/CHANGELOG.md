@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [3.0.4](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v3.0.3...common-ui-v3.0.4) (2024-07-09)
+
 ## [3.0.3](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v3.0.2...common-ui-v3.0.3) (2024-07-06)
 
 ## [3.0.2](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v3.0.1...common-ui-v3.0.2) (2024-07-03)
