@@ -4,7 +4,7 @@
   "peerDependencies": {
     "@angular/common": "^17.3.0 || ^18.0.0",
     "@angular/core": "^17.3.0 || ^18.0.0",
-    "@angular/router": "~17.3.0 || ~18.0.0",
+    "@angular/router": "~17.3.0 || ~18.0.0 || ~18.1.0",
     "@marcolongo.cloud/core": "2.1.2",
     "@nx/angular": "19.4.2",
     "@pdftron/webviewer": "^10.8.0",
