@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [3.0.5](https://github.com/marcolongol/marcolongo.cloud/compare/gradient-os-v3.0.4...gradient-os-v3.0.5) (2024-07-10)
+
+
+### Bug Fixes
+
+* **deps:** update angular monorepo to ~18.1.0 ([#337](https://github.com/marcolongol/marcolongo.cloud/issues/337)) ([a3e9a32](https://github.com/marcolongol/marcolongo.cloud/commit/a3e9a324b691c38a870eee2d975c574721a644b2))
+
 ## [3.0.4](https://github.com/marcolongol/marcolongo.cloud/compare/gradient-os-v3.0.3...gradient-os-v3.0.4) (2024-07-09)
 
 ## [3.0.3](https://github.com/marcolongol/marcolongo.cloud/compare/gradient-os-v3.0.2...gradient-os-v3.0.3) (2024-07-06)
