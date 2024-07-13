@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [3.0.6](https://github.com/marcolongol/marcolongo.cloud/compare/gradient-os-v3.0.5...gradient-os-v3.0.6) (2024-07-13)
+
 ## [3.0.5](https://github.com/marcolongol/marcolongo.cloud/compare/gradient-os-v3.0.4...gradient-os-v3.0.5) (2024-07-10)
 
 
