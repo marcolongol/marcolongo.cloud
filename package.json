@@ -31,6 +31,7 @@
     "not IE 11"
   ],
   "dependencies": {
+    "@abacritt/angularx-social-login": "^2.3.0",
     "@angular/animations": "~18.1.0",
     "@angular/common": "~18.1.0",
     "@angular/compiler": "~18.1.0",
