@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [3.1.0](https://github.com/marcolongol/marcolongo.cloud/compare/core-3.0.6...core-3.1.0) (2024-07-16)
+
+
+### ✨ Features
+
+* **common-ui:** add `LoginComponent` ([#355](https://github.com/marcolongol/marcolongo.cloud/issues/355)) ([317e96c](https://github.com/marcolongol/marcolongo.cloud/commit/317e96c508836b688c9d3533610562f3e4e64520))
+
 ## [3.0.6](https://github.com/marcolongol/marcolongo.cloud/compare/core-3.0.5...core-3.0.6) (2024-07-13)
 
 ## [3.0.5](https://github.com/marcolongol/marcolongo.cloud/compare/core-3.0.4...core-3.0.5) (2024-07-10)
