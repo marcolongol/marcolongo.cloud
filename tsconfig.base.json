@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@marcolongo.cloud/common-ui": ["libs/common-ui/src/index.ts"],
+      "@marcolongo.cloud/common-ui/animations": [
+        "libs/common-ui/animations/src/index.ts"
+      ],
       "@marcolongo.cloud/common-ui/components": [
         "libs/common-ui/components/src/index.ts"
       ],
@@ -25,6 +28,7 @@
         "libs/common-ui/webviewer/src/index.ts"
       ],
       "@marcolongo.cloud/core": ["libs/core/src/index.ts"],
+      "@marcolongo.cloud/core/auth": ["libs/core/auth/src/index.ts"],
       "@marcolongo.cloud/core/utils": ["libs/core/utils/src/index.ts"],
       "@marcolongo.cloud/gradient-os": ["libs/gradient-os/src/index.ts"]
     }

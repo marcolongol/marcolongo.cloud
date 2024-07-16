@@ -1,0 +1,41 @@
+<div
+  class="relative m-6 flex flex-col space-y-10 rounded-2xl bg-white shadow-2xl md:m-0 md:flex-row md:space-y-0"
+>
+  <div class="p-6 md:w-[800px] md:p-20">
+    <span
+      class="fa fa-times hover:text-red absolute right-0 top-0 translate-y-0.5 cursor-pointer p-6 text-3xl text-gray-600 transition duration-150 hover:text-red-600"
+    ></span>
+    <h2 class="mb-5 font-mono text-4xl font-bold">Log In</h2>
+    <p class="mb-12 max-w-sm font-sans font-light text-gray-600">
+      Enter your email address and password to access your account
+    </p>
+    <lib-login-form></lib-login-form>
+    <div class="mt-12 border-b border-b-gray-300"></div>
+    <p class="py-6 text-center text-sm font-thin text-gray-400">Or log in with</p>
+    <div
+      class="flex flex-col justify-around space-x-0 space-y-6 md:flex-row md:space-y-0"
+    >
+      <button
+        class="flex w-full items-center justify-center space-x-4 rounded-md border bg-blue-500 p-6 px-9 font-sans font-bold text-white shadow-sm shadow-blue-100 transition duration-150 hover:-translate-y-0.5 hover:bg-opacity-90 hover:shadow-lg md:w-auto"
+      >
+        <span class="fab fa-facebook-f"></span>
+        <span>Facebook</span>
+      </button>
+      <button
+        class="flex w-full items-center justify-center space-x-4 rounded-md border bg-red-500 p-6 px-9 font-sans font-bold text-white shadow-sm shadow-red-100 transition duration-150 hover:-translate-y-0.5 hover:bg-opacity-90 hover:shadow-lg md:w-auto"
+      >
+        <span class="fab fa-google"></span>
+        <span>Google</span>
+      </button>
+    </div>
+    <div class="mt-12 flex items-center space-x-4">
+      <div class="font-thin text-gray-600">Don't have an account?</div>
+      <div class="font-bold text-cyan-700">Sign Up</div>
+    </div>
+  </div>
+  <img
+    class="hidden w-[430px] rounded-r-2xl object-cover md:block"
+    src="http://loremflickr.com/430/600/abstract"
+    alt=""
+  />
+</div>
