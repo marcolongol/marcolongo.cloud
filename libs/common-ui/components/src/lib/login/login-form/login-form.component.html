@@ -47,6 +47,32 @@
         formControlName="password"
       />
     </div>
+    <small
+      class="text-red-500"
+      *ngIf="form.controls.email.invalid && form.controls.email.touched && stage === 1"
+    >
+      <span>Please enter a valid email address</span>
+      <ul class="list-item list-inside">
+        <li *ngFor="let error of form.controls.email.errors | keyvalue">
+          <span *ngIf="error.key === 'required'">Email is required</span>
+          <span *ngIf="error.key === 'email'">Email is invalid</span>
+        </li>
+      </ul>
+    </small>
+    <small
+      class="text-red-500"
+      *ngIf="
+        form.controls.password.invalid && form.controls.password.touched && stage === 2
+      "
+    >
+      <span>Please enter a valid password</span>
+      <ul class="list-inside list-disc">
+        <li *ngFor="let error of form.controls.password.errors | keyvalue">
+          <span *ngIf="error.key === 'required'">Password is required</span>
+          <span *ngIf="error.key === 'minlength'">Password is too short</span>
+        </li>
+      </ul>
+    </small>
     <div
       class="mt-6 flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0"
     >
@@ -57,7 +83,10 @@
         class="flex w-full items-center justify-center space-x-4 rounded-md border bg-cyan-700 p-6 px-9 font-sans font-bold text-white shadow-sm shadow-cyan-100 transition duration-150 hover:-translate-y-0.5 hover:bg-opacity-90 hover:shadow-lg md:w-auto"
         (click)="nextStage()"
       >
-        <span *ngIf="stage === 1">Next</span>
+        <span *ngIf="stage === 1"
+          >Next
+          <span class="fa fa-arrow-right"></span>
+        </span>
         <span *ngIf="stage === 2">Login</span>
       </button>
     </div>

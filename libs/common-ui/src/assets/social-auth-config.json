@@ -1,0 +1,13 @@
+{
+  "$schema": "social-auth-config.schema.json",
+  "autoLogin": false,
+  "lang": "en",
+  "googleClientId": "658370247170-dah1l76tmrb7gci7s1c3blkecnov7hip",
+  "googleInitOptions": {
+    "oneTapEnabled": false,
+    "scopes": ["email"],
+    "prompt_parent_id": "google-signin",
+    "prompt": "select_account"
+  },
+  "facebookClientId": "1477524642962896"
+}

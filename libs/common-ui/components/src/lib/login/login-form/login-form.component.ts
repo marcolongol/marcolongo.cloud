@@ -12,12 +12,6 @@ import {
   slideLeftAnimation,
 } from '@marcolongo.cloud/common-ui/animations';
 
-export const STAGE = {
-  EMAIL: 1,
-  PASSWORD: 2,
-  SUBMIT: 3,
-} as const;
-
 @Component({
   selector: 'lib-login-form',
   standalone: true,
@@ -30,60 +24,75 @@ export const STAGE = {
 export class LoginFormComponent {
   // SECTION: Properties
   // ==========================================================================
-  private readonly _currentStage: WritableSignal<(typeof STAGE)[keyof typeof STAGE]> =
-    signal(STAGE.EMAIL);
-  private readonly fb = new FormBuilder();
 
+  // SECTION: Static Properties
+  // ---------------------------------------------------------------------------
+  public static readonly STAGE = {
+    EMAIL: 1,
+    PASSWORD: 2,
+    SUBMIT: 3,
+  } as const;
+
+  // SECTION: Private Properties
+  // ---------------------------------------------------------------------------
+  private readonly _fb = new FormBuilder();
+  private readonly _currentStage: WritableSignal<
+    (typeof LoginFormComponent.STAGE)[keyof typeof LoginFormComponent.STAGE]
+  > = signal(LoginFormComponent.STAGE.EMAIL);
+
+  // SECTION: Public Properties
+  // ---------------------------------------------------------------------------
   public readonly currentStage = this._currentStage.asReadonly();
-  public readonly form = this.fb.group({
+  public readonly form = this._fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
   });
 
   // SECTION: Methods
+  // ==========================================================================
   public nextStage() {
-    const currentStage = this.currentStage();
-    switch (currentStage) {
-      case STAGE.EMAIL: {
+    switch (this.currentStage()) {
+      case LoginFormComponent.STAGE.EMAIL: {
         if (this.form.controls.email.invalid) {
           this.form.controls.email.markAsTouched();
           return;
         }
-        this.setStage(STAGE.PASSWORD);
+        this.setStage(LoginFormComponent.STAGE.PASSWORD);
         break;
       }
-      case STAGE.PASSWORD: {
+      case LoginFormComponent.STAGE.PASSWORD: {
         if (this.form.controls.password.invalid) {
           this.form.controls.password.markAsTouched();
           return;
         }
-        this.setStage(STAGE.SUBMIT);
+        this.setStage(LoginFormComponent.STAGE.SUBMIT);
         break;
       }
-      case STAGE.SUBMIT: {
+      case LoginFormComponent.STAGE.SUBMIT: {
         break;
       }
     }
   }
 
   public previousStage() {
-    const currentStage = this.currentStage();
-    switch (currentStage) {
-      case STAGE.EMAIL: {
+    switch (this.currentStage()) {
+      case LoginFormComponent.STAGE.EMAIL: {
         break;
       }
-      case STAGE.PASSWORD: {
-        this.setStage(STAGE.EMAIL);
+      case LoginFormComponent.STAGE.PASSWORD: {
+        this.setStage(LoginFormComponent.STAGE.EMAIL);
         break;
       }
-      case STAGE.SUBMIT: {
-        this.setStage(STAGE.PASSWORD);
+      case LoginFormComponent.STAGE.SUBMIT: {
+        this.setStage(LoginFormComponent.STAGE.PASSWORD);
         break;
       }
     }
   }
 
-  public setStage(stage: (typeof STAGE)[keyof typeof STAGE]) {
+  public setStage(
+    stage: (typeof LoginFormComponent.STAGE)[keyof typeof LoginFormComponent.STAGE],
+  ) {
     this._currentStage.set(stage);
   }
 }

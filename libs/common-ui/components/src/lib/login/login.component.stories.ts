@@ -1,7 +1,13 @@
+import { SocialLoginModule } from '@abacritt/angularx-social-login';
+import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { type Meta, type StoryObj, applicationConfig } from '@storybook/angular';
-import { expect } from '@storybook/jest';
-import { within } from '@storybook/testing-library';
+import { provideSocialAuthServiceConfig } from '@marcolongo.cloud/core/auth';
+import {
+  type Meta,
+  type StoryObj,
+  applicationConfig,
+  moduleMetadata,
+} from '@storybook/angular';
 
 import { LoginComponent } from './login.component';
 
@@ -9,8 +15,15 @@ const meta: Meta<LoginComponent> = {
   component: LoginComponent,
   title: 'LoginComponent',
   decorators: [
+    moduleMetadata({
+      imports: [SocialLoginModule],
+    }),
     applicationConfig({
-      providers: [provideAnimationsAsync()],
+      providers: [
+        provideSocialAuthServiceConfig(),
+        provideAnimationsAsync(),
+        provideHttpClient(),
+      ],
     }),
   ],
 };
@@ -19,12 +32,4 @@ type Story = StoryObj<LoginComponent>;
 
 export const Primary: Story = {
   args: {},
-};
-
-export const Heading: Story = {
-  args: {},
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    expect(canvas.getByText(/login works!/gi)).toBeTruthy();
-  },
 };
