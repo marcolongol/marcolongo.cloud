@@ -5,7 +5,6 @@ export const slideRightAnimation = trigger('slideRight', [
     'void',
     style({
       width: '0%',
-      transform: 'translateX(-100%)',
       opacity: 0,
     }),
   ),
@@ -13,7 +12,6 @@ export const slideRightAnimation = trigger('slideRight', [
     '*',
     style({
       width: '100%',
-      transform: 'translateX(0)',
     }),
   ),
   transition('void => *', animate('500ms ease-in')),
@@ -25,7 +23,6 @@ export const slideLeftAnimation = trigger('slideLeft', [
     'void',
     style({
       width: '0%',
-      transform: 'translateX(100%)',
       opacity: 0,
     }),
   ),
@@ -33,7 +30,6 @@ export const slideLeftAnimation = trigger('slideLeft', [
     '*',
     style({
       width: '100%',
-      transform: 'translateX(0)',
     }),
   ),
   transition('void => *', animate('500ms ease-in')),
