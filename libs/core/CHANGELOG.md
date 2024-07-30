@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [3.2.0](https://github.com/marcolongol/marcolongo.cloud/compare/core-3.1.2...core-3.2.0) (2024-07-30)
+
+
+### ✨ Features
+
+* **core:** add util `provideSocialAuthServiceConfig` ([#406](https://github.com/marcolongol/marcolongo.cloud/issues/406)) ([a46b448](https://github.com/marcolongol/marcolongo.cloud/commit/a46b448295f41b0f72b1980f67da89bb72102b16))
+
 ## [3.1.2](https://github.com/marcolongol/marcolongo.cloud/compare/core-3.1.1...core-3.1.2) (2024-07-25)
 
 ## [3.1.1](https://github.com/marcolongol/marcolongo.cloud/compare/core-3.1.0...core-3.1.1) (2024-07-17)
