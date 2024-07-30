@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [3.1.3](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v3.1.2...common-ui-v3.1.3) (2024-07-30)
+
+
+### Bug Fixes
+
+* **common-ui:** fix animation overflowing screen ([#405](https://github.com/marcolongol/marcolongo.cloud/issues/405)) ([b38b5e4](https://github.com/marcolongol/marcolongo.cloud/commit/b38b5e4cad8ea4ccd62672d3df5c5638942f3471))
+
 ## [3.1.2](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v3.1.1...common-ui-v3.1.2) (2024-07-25)
 
 ## [3.1.1](https://github.com/marcolongol/marcolongo.cloud/compare/common-ui-v3.1.0...common-ui-v3.1.1) (2024-07-17)
