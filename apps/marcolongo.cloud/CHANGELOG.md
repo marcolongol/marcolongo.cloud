@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [1.3.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v1.2.0...marcolongo.cloud-v1.3.0) (2024-07-30)
+
+
+### Features
+
+* **marcolongo.cloud:** enable zone.js event coalescing ([#404](https://github.com/marcolongol/marcolongo.cloud/issues/404)) ([145975b](https://github.com/marcolongol/marcolongo.cloud/commit/145975b5ff31dd0db7c6265349fe6863b6bdb081))
+
 ## [1.2.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-v1.1.1...marcolongo.cloud-v1.2.0) (2024-06-25)
 
 
