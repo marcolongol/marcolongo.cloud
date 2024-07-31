@@ -5,6 +5,41 @@
   "projectType": "application",
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/marcolongo.cloud-api",
+        "main": "apps/marcolongo.cloud-api/src/main.ts",
+        "tsConfig": "apps/marcolongo.cloud-api/tsconfig.app.json",
+        "webpackConfig": "apps/marcolongo.cloud-api/webpack.config.ts",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/marcolongo.cloud-api/src/assets",
+            "output": "/assets"
+          }
+        ]
+      },
+      "configurations": {
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "extractLicenses": false,
+          "inspect": true,
+          "webpackConfig": "apps/marcolongo.cloud-api/webpack-hmr.config.ts"
+        },
+        "production": {
+          "optimization": true,
+          "sourceMap": false,
+          "extractLicenses": true,
+          "inspect": false,
+          "webpackConfig": "apps/marcolongo.cloud-api/webpack.config.ts"
+        }
+      }
+    },
+
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
