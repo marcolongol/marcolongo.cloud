@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.0](https://github.com/marcolongol/marcolongo.cloud/compare/marcolongo.cloud-api-0.1.0...marcolongo.cloud-api-0.2.0) (2024-07-31)
+
+
+### Features
+
+* **marcolongo.cloud-api:** enable hmr for development targets ([#408](https://github.com/marcolongol/marcolongo.cloud/issues/408)) ([9feaec2](https://github.com/marcolongol/marcolongo.cloud/commit/9feaec2645ddde29366a70f71b4ccd84616027fb))
+
 ## 0.1.0 (2024-05-25)
 
 
