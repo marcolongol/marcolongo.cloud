@@ -5,24 +5,40 @@ import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 import { AppModule } from './app/app.module';
+import module, {
+  TITLE,
+  DESCRIPTION,
+  VERSION,
+  TAG,
+  GLOBAL_PREFIX,
+  SWAGGER_PATH,
+} from './config/globals';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
+  app.setGlobalPrefix(GLOBAL_PREFIX);
+
   const port = process.env.PORT || 3000;
 
   const config = new DocumentBuilder()
-    .setTitle('Marcolongo Cloud API')
-    .setDescription('API for Marcolongo Cloud')
-    .setVersion('1.0')
-    .addTag('marcolongo')
+    .setTitle(TITLE)
+    .setDescription(DESCRIPTION)
+    .setVersion(VERSION)
+    .addTag(TAG)
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('docs', app, document);
+  SwaggerModule.setup(SWAGGER_PATH, app, document);
 
   await app.listen(port);
-  Logger.log(`🚀 Application is running on: http://localhost:${port}/${globalPrefix}`);
+
+  Logger.log(
+    `🚀 Application is running on: http://localhost:${port}/${GLOBAL_PREFIX}`,
+  );
+
+  if (module.hot) {
+    module.hot.accept();
+    module.hot.dispose(() => app.close());
+  }
 }
 
 await bootstrap();
