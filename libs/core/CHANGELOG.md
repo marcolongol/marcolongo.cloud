@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [3.2.1](https://github.com/marcolongol/marcolongo.cloud/compare/core-3.2.0...core-3.2.1) (2024-07-31)
+
 ## [3.2.0](https://github.com/marcolongol/marcolongo.cloud/compare/core-3.1.2...core-3.2.0) (2024-07-30)
 
 
