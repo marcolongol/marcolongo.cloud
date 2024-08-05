@@ -121,7 +121,6 @@
     }
   },
   "plugins": [
-    "@nxlv/python",
     {
       "plugin": "@nx/cypress/plugin",
       "options": {
