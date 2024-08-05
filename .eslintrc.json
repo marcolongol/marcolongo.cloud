@@ -122,7 +122,7 @@
       "files": ["*.json"],
       "parser": "jsonc-eslint-parser",
       "rules": {
-        "@nx/dependency-checks": "warn"
+        "@nx/dependency-checks": "error"
       }
     }
   ]
