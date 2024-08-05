@@ -166,22 +166,10 @@
       },
       "configurations": {
         "development": {
-          "target": "development",
           "metadata": {
             "images": ["ghcr.io/marcolongol/marcolongo.cloud-app"],
-            "tags": ["type=raw,value=development", "type=schedule", "type=sha"],
-            "labels": [
-              "org.opencontainers.image.title=marcolongo.cloud-app",
-              "org.opencontainers.image.description=marcolongo.cloud-app",
-              "org.opencontainers.image.url=https://github.com/marcolongol/marcolongo.cloud",
-              "org.opencontainers.image.source=https://github.com/marcolongol/marcolongo.cloud",
-              "org.opencontainers.image.vendor=marcolongol",
-              "org.opencontainers.image.licenses=MIT"
-            ]
+            "tags": ["type=raw,value=development", "type=schedule", "type=sha"]
           }
-        },
-        "production": {
-          "target": "production"
         }
       },
       "defaultConfiguration": "development"
