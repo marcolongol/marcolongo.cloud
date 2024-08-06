@@ -2,6 +2,45 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## 1.0.0 (2024-08-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** Update angular monorepo to v18 (major) (#196)
+* **deps:** Update dependency eslint-plugin-unicorn to v53 (#142)
+* **deps:** Update nrwl monorepo to v19 (major) (#119)
+
+* **deps:** Update dependency eslint-plugin-unicorn to v53 ([#142](https://github.com/marcolongol/marcolongo.cloud/issues/142)) ([840e9e3](https://github.com/marcolongol/marcolongo.cloud/commit/840e9e36f93f17cd6b8af4c62105846a91ee958c))
+
+
+### ✨ Features
+
+* **api:** add `api` project, proxy, `container`, etc... ([#163](https://github.com/marcolongol/marcolongo.cloud/issues/163)) ([8dfc33e](https://github.com/marcolongol/marcolongo.cloud/commit/8dfc33ec1f8c287159795f3910cb13354fe70937))
+* **common-ui:** add `LoginComponent` ([#355](https://github.com/marcolongol/marcolongo.cloud/issues/355)) ([317e96c](https://github.com/marcolongol/marcolongo.cloud/commit/317e96c508836b688c9d3533610562f3e4e64520))
+* **core:** add util `provideSocialAuthServiceConfig` ([#406](https://github.com/marcolongol/marcolongo.cloud/issues/406)) ([a46b448](https://github.com/marcolongol/marcolongo.cloud/commit/a46b448295f41b0f72b1980f67da89bb72102b16))
+* **marcolongo.cloud-api:** nestjs api, package updates ([#205](https://github.com/marcolongol/marcolongo.cloud/issues/205)) ([a65a343](https://github.com/marcolongol/marcolongo.cloud/commit/a65a343f338e4e292369f84ee3fe3d8131a80fdf))
+* sticky footer, styles rework, etc... ([#242](https://github.com/marcolongol/marcolongo.cloud/issues/242)) ([460b6f2](https://github.com/marcolongol/marcolongo.cloud/commit/460b6f224723a6a3cb55dfe341dfb620b5842daf))
+
+
+### 🐞 Bug Fixes
+
+* add secondary library entrypoints to `tsconfig.spec.json` ([#153](https://github.com/marcolongol/marcolongo.cloud/issues/153)) ([720b4ef](https://github.com/marcolongol/marcolongo.cloud/commit/720b4eff7f966193ff9c1c276b504e03ac826363))
+* **common-ui:** reactive `ThemeSelectorComponent` ([#223](https://github.com/marcolongol/marcolongo.cloud/issues/223)) ([ff63f9c](https://github.com/marcolongol/marcolongo.cloud/commit/ff63f9c01dec1e4ff80f4ef6611db59ed6a7b3cf))
+* **core:** add missing deps ([e9dd7e8](https://github.com/marcolongol/marcolongo.cloud/commit/e9dd7e84b406b7a532e4d7a312ee3e5b6ff29bb2))
+* **deps:** update angular monorepo to ~18.1.0 ([#337](https://github.com/marcolongol/marcolongo.cloud/issues/337)) ([a3e9a32](https://github.com/marcolongol/marcolongo.cloud/commit/a3e9a324b691c38a870eee2d975c574721a644b2))
+* **deps:** Update angular monorepo to v18 (major) ([#196](https://github.com/marcolongol/marcolongo.cloud/issues/196)) ([31e50a1](https://github.com/marcolongol/marcolongo.cloud/commit/31e50a1dfff2b635840c7d798476a37f1a08425e))
+* **deps:** Update nrwl monorepo to v19 (major) ([#119](https://github.com/marcolongol/marcolongo.cloud/issues/119)) ([aac15e2](https://github.com/marcolongol/marcolongo.cloud/commit/aac15e28321832ac6b00d64d055cf6a1eba46698))
+* **deps:** update nrwl monorepo to v19.0.1 ([#127](https://github.com/marcolongol/marcolongo.cloud/issues/127)) ([cda16b6](https://github.com/marcolongol/marcolongo.cloud/commit/cda16b68102c4c3de8aceb46cc3b9aa9a611a2b6))
+* **deps:** update nrwl monorepo to v19.0.2 ([#139](https://github.com/marcolongol/marcolongo.cloud/issues/139)) ([caad3e4](https://github.com/marcolongol/marcolongo.cloud/commit/caad3e41a224e4485593b00746462881d3b9d5b1))
+* **deps:** update nrwl monorepo to v19.0.3 ([#147](https://github.com/marcolongol/marcolongo.cloud/issues/147)) ([4cc601c](https://github.com/marcolongol/marcolongo.cloud/commit/4cc601c41c78e583b3a0bc049a44ea428961a2cd))
+* **deps:** update nrwl monorepo to v19.0.4 ([#160](https://github.com/marcolongol/marcolongo.cloud/issues/160)) ([450f028](https://github.com/marcolongol/marcolongo.cloud/commit/450f028d8c573be0f3bbd9e45bfd0992bbeaf311))
+* **deps:** update nrwl monorepo to v19.0.5 ([#185](https://github.com/marcolongol/marcolongo.cloud/issues/185)) ([8f1c9db](https://github.com/marcolongol/marcolongo.cloud/commit/8f1c9dbadd0357aaeb74e62f31e93fd8548c6a2e))
+* **deps:** update nrwl monorepo to v19.0.6 ([#192](https://github.com/marcolongol/marcolongo.cloud/issues/192)) ([5a5604c](https://github.com/marcolongol/marcolongo.cloud/commit/5a5604cd74a4b45974552d342e758e57f45ec084))
+* **deps:** update nrwl monorepo to v19.0.7 ([#200](https://github.com/marcolongol/marcolongo.cloud/issues/200)) ([a161db8](https://github.com/marcolongol/marcolongo.cloud/commit/a161db8f31d9582d4e0bef618404689a90b5b0c3))
+* **deps:** update nrwl monorepo to v19.1.0 ([#203](https://github.com/marcolongol/marcolongo.cloud/issues/203)) ([935f87c](https://github.com/marcolongol/marcolongo.cloud/commit/935f87c6f49462b2f3ae9073469ebd9e55eb4deb))
+* tailwind references for libraries ([#155](https://github.com/marcolongol/marcolongo.cloud/issues/155)) ([d0f5e78](https://github.com/marcolongol/marcolongo.cloud/commit/d0f5e789319150eb889a41b6a9e6b526670a64ae))
+
 ## [3.2.3](https://github.com/marcolongol/marcolongo.cloud/compare/core-3.2.2...core-3.2.3) (2024-08-02)
 
 ## [3.2.2](https://github.com/marcolongol/marcolongo.cloud/compare/core-3.2.1...core-3.2.2) (2024-08-01)

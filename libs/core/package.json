@@ -1,6 +1,6 @@
 {
   "name": "@marcolongo.cloud/core",
-  "version": "3.2.3",
+  "version": "1.0.0",
   "peerDependencies": {
     "@abacritt/angularx-social-login": "^2.3.0",
     "@angular/common": "~18.1.0",
