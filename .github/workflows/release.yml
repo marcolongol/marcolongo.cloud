@@ -5,25 +5,23 @@ name: Release
 
 on:
   workflow_dispatch:
-  schedule:
-    # Cron syntax:
-    # *     *     *     *     *     *
-    # ┬     ┬     ┬     ┬     ┬     ┬
-    # │     │     │     │     │     |
-    # │     │     │     │     │     └ day of week (0 - 7) (0 or 7 is Sun)
-    # │     │     │     │     └────── month (1 - 12)
-    # │     │     │     └────────── day of month (1 - 31)
-    # │     │     └─────────────── hour (0 - 23)
-    # │     └──────────────────── minute (0 - 59)
-    # └───────────────────────── second (0 - 59) #! optional
-    - cron: '0 0/3 * * *' # Run every 3 hours
-    # NOTE: Github Scheduled Actions only run on the default branch!
+  # schedule:
+  # Cron syntax:
+  # *     *     *     *     *     *
+  # ┬     ┬     ┬     ┬     ┬     ┬
+  # │     │     │     │     │     |
+  # │     │     │     │     │     └ day of week (0 - 7) (0 or 7 is Sun)
+  # │     │     │     │     └────── month (1 - 12)
+  # │     │     │     └────────── day of month (1 - 31)
+  # │     │     └─────────────── hour (0 - 23)
+  # │     └──────────────────── minute (0 - 59)
+  # └───────────────────────── second (0 - 59) #! optional
+  # - cron: '0 0/3 * * *' # Run every 3 hours
+  # NOTE: Github Scheduled Actions only run on the default branch!
 
 env:
   NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
   NX_SKIP_NX_CACHE: ${{ vars.NX_SKIP_NX_CACHE || 'false' }}
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 permissions:
   contents: write
@@ -34,11 +32,6 @@ jobs:
     name: release
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        run: echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-
       - name: Generate Token
         uses: actions/create-github-app-token@v1
         id: app-token
