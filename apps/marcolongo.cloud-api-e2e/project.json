@@ -12,12 +12,6 @@
         "passWithNoTests": true
       },
       "dependsOn": ["marcolongo.cloud-api:build"]
-    },
-    "version": {
-      "executor": "@jscutlery/semver:version",
-      "options": {
-        "preset": "conventionalcommits"
-      }
     }
   }
 }

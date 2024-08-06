@@ -39,7 +39,6 @@
         }
       }
     },
-
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
@@ -78,12 +77,6 @@
             "type=sha,prefix=sha-"
           ]
         }
-      }
-    },
-    "version": {
-      "executor": "@jscutlery/semver:version",
-      "options": {
-        "preset": "conventionalcommits"
       }
     }
   }

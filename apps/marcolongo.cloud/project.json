@@ -174,17 +174,6 @@
       },
       "defaultConfiguration": "development"
     },
-    "version": {
-      "executor": "@jscutlery/semver:version",
-      "options": {
-        "tagPrefix": "marcolongo.cloud-v",
-        "postTargets": ["github"],
-        "preset": "conventionalcommits"
-      }
-    },
-    "github": {
-      "executor": "@jscutlery/semver:github"
-    },
     "stylelint": {
       "executor": "nx-stylelint:lint",
       "outputs": ["{options.outputFile}"],
