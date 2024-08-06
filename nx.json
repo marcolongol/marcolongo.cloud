@@ -54,58 +54,6 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },
-    "@jscutlery/semver:version": {
-      "cache": true,
-      "inputs": ["default", "^production"],
-      "options": {
-        "push": true,
-        "preset": {
-          "name": "conventionalcommits",
-          "types": [
-            {
-              "type": "feat",
-              "section": "✨ Features"
-            },
-            {
-              "type": "fix",
-              "section": "🐞 Bug Fixes"
-            },
-            {
-              "type": "chore",
-              "hidden": true
-            },
-            {
-              "type": "docs",
-              "hidden": true
-            },
-            {
-              "type": "style",
-              "hidden": true
-            },
-            {
-              "type": "refactor",
-              "hidden": true
-            },
-            {
-              "type": "perf",
-              "hidden": true
-            },
-            {
-              "type": "test",
-              "hidden": true
-            }
-          ]
-        }
-      }
-    },
-    "@jscutlery/semver:github": {
-      "cache": true,
-      "inputs": ["default", "^production"],
-      "options": {
-        "tag": "{tag}",
-        "notes": "{notes}"
-      }
-    },
     "stylelint": {
       "inputs": ["default", "{workspaceRoot}/.stylelintrc(.(json|yml|yaml|js))?"],
       "cache": true
@@ -160,5 +108,38 @@
       "unitTestRunner": "jest"
     }
   },
-  "nxCloudAccessToken": "MWJjZjNmYjMtODhhOC00MTE0LTljZGQtYWJmNTZmMjA3NTQzfHJlYWQ="
+  "nxCloudAccessToken": "MWJjZjNmYjMtODhhOC00MTE0LTljZGQtYWJmNTZmMjA3NTQzfHJlYWQ=",
+  "release": {
+    "releaseTagPattern": "{projectName}@v{version}",
+    "projects": [
+      "marcolongo.cloud",
+      "marcolongo.cloud-e2e",
+      "marcolongo.cloud-api",
+      "marcolongo.cloud-api-e2e",
+      "core",
+      "common-ui",
+      "gradient-os"
+    ],
+    "projectsRelationship": "independent",
+    "version": {
+      "preVersionCommand": "npx nx run-many -t build",
+      "conventionalCommits": true
+    },
+    "git": {
+      "commit": true,
+      "commitArgs": "--no-verify"
+    },
+    "changelog": {
+      "automaticFromRef": true,
+      "projectChangelogs": {
+        "createRelease": "github",
+        "renderOptions": {
+          "authors": true,
+          "mapAuthorsToGitHubUserNames": true,
+          "commitReferences": true,
+          "versionTitleDate": true
+        }
+      }
+    }
+  }
 }

@@ -59,17 +59,6 @@
     "lint": {
       "executor": "@nx/eslint:lint"
     },
-    "version": {
-      "executor": "@jscutlery/semver:version",
-      "options": {
-        "tagPrefix": "common-ui-v",
-        "postTargets": ["github"],
-        "preset": "conventionalcommits"
-      }
-    },
-    "github": {
-      "executor": "@jscutlery/semver:github"
-    },
     "stylelint": {
       "executor": "nx-stylelint:lint",
       "outputs": ["{options.outputFile}"],

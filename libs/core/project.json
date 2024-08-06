@@ -33,22 +33,6 @@
     "lint": {
       "executor": "@nx/eslint:lint"
     },
-    "version": {
-      "executor": "@jscutlery/semver:version",
-      "configurations": {
-        "development": {
-          "tagPrefix": "core-dev",
-          "commitMessageFormat": "chore({projectName}-dev): release version {version}"
-        },
-        "production": {
-          "tagPrefix": "core-v",
-          "postTargets": ["github"]
-        },
-        "options": {
-          "preset": "conventionalcommits"
-        }
-      }
-    },
     "github": {
       "executor": "@jscutlery/semver:github"
     },
