@@ -1,0 +1,13 @@
+{
+  "name": "@marcolongo.cloud/gradient-os",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^17.3.0 || ^18.0.0",
+    "@angular/core": "^17.3.0 || ^18.0.0",
+    "@angular/router": "~17.3.0 || ~18.0.0 || ~18.1.0",
+    "@nx/angular": "19.5.6",
+    "tailwindcss": "^3.0.2"
+  },
+  "dependencies": {},
+  "sideEffects": false
+}

@@ -1,0 +1,133 @@
+{
+  "name": "common-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/common-ui/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "prebuild": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "bgColor": "bgBlack",
+            "color": "white",
+            "command": "cp -r ./node_modules/@pdftron/webviewer/public/* ./libs/common-ui/webviewer/src/assets/webviewer",
+            "description": "Copy WebViewer public folder to assets"
+          },
+          {
+            "bgColor": "bgBlack",
+            "color": "white",
+            "command": "cp ./node_modules/@pdftron/webviewer/webviewer.min.js ./libs/common-ui/webviewer/src/assets/webviewer",
+            "description": "Copy WebViewer min.js file to assets"
+          },
+          {
+            "bgColor": "bgBlack",
+            "color": "white",
+            "command": "cp -r ./node_modules/@fortawesome/fontawesome-free/webfonts/* ./libs/common-ui/src/assets/webfonts",
+            "description": "Copy fontawesome webfonts folder to assets"
+          }
+        ]
+      }
+    },
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "dependsOn": ["prebuild", "core:build"],
+      "options": {
+        "project": "libs/common-ui/ng-package.json",
+        "tailwindConfig": "libs/common-ui/tailwind.config.ts"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/common-ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/common-ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/common-ui/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "tagPrefix": "common-ui-v",
+        "postTargets": ["github"],
+        "preset": "conventionalcommits"
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github"
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/common-ui/**/*.scss", "libs/common-ui/**/*.css"]
+      }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4401,
+        "configDir": "libs/common-ui/.storybook",
+        "browserTarget": "common-ui:build-storybook",
+        "compodoc": false,
+        "styles": ["libs/common-ui/src/styles/common-ui/themes.scss"],
+        "assets": ["libs/common-ui/src/assets"]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/common-ui",
+        "configDir": "libs/common-ui/.storybook",
+        "browserTarget": "common-ui:build-storybook",
+        "compodoc": false,
+        "assets": ["libs/common-ui/src/assets"],
+        "styles": ["libs/common-ui/src/styles/common-ui/themes.scss"]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c libs/common-ui/.storybook --url=http://localhost:4401"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "common-ui:build-storybook",
+        "staticFilePath": "dist/storybook/common-ui",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "common-ui:build-storybook:ci"
+        }
+      }
+    }
+  }
+}

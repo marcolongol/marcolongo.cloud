@@ -1,0 +1,37 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@marcolongo.cloud/common-ui": ["libs/common-ui/src/index.ts"],
+      "@marcolongo.cloud/common-ui/animations": [
+        "libs/common-ui/animations/src/index.ts"
+      ],
+      "@marcolongo.cloud/common-ui/components": [
+        "libs/common-ui/components/src/index.ts"
+      ],
+      "@marcolongo.cloud/common-ui/services": ["libs/common-ui/services/src/index.ts"],
+      "@marcolongo.cloud/common-ui/utils": ["libs/common-ui/utils/src/index.ts"],
+      "@marcolongo.cloud/common-ui/webviewer": [
+        "libs/common-ui/webviewer/src/index.ts"
+      ],
+      "@marcolongo.cloud/core": ["libs/core/src/index.ts"],
+      "@marcolongo.cloud/core/auth": ["libs/core/auth/src/index.ts"],
+      "@marcolongo.cloud/core/utils": ["libs/core/utils/src/index.ts"],
+      "@marcolongo.cloud/gradient-os": ["libs/gradient-os/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

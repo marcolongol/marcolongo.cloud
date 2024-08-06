@@ -1,0 +1,94 @@
+<ng-container *ngIf="currentStage() as stage">
+  <div class="flex flex-col">
+    <div class="my-2 flex items-center justify-center">
+      <div
+        class="w-full cursor-pointer border-2 border-gray-300"
+        (click)="previousStage()"
+      ></div>
+      <div
+        class="w-full cursor-pointer border-2 border-gray-300"
+        (click)="nextStage()"
+      ></div>
+    </div>
+    <div
+      class="w-1/2 -translate-y-3 transform border-2 border-gray-500 transition duration-500"
+      [ngClass]="{
+        'translate-x-0': stage === 1,
+        'translate-x-full': stage === 2,
+      }"
+    ></div>
+  </div>
+  <form [formGroup]="form">
+    <div class="flex flex-row items-center justify-between">
+      <input
+        class="w-full rounded-md border border-gray-300 p-6 placeholder:font-sans placeholder:font-light"
+        *ngIf="stage === 1"
+        [@slideRight]="stage === 1 ? '*' : 'void'"
+        [ngClass]="{
+          'border-red-500': form.controls.email.invalid && form.controls.email.touched,
+          'border-green-500': form.controls.email.valid && form.controls.email.touched,
+        }"
+        type="text"
+        placeholder="Enter your email address"
+        formControlName="email"
+      />
+      <input
+        class="w-full rounded-md border border-gray-300 p-6 placeholder:font-sans placeholder:font-light"
+        *ngIf="stage === 2"
+        [@slideLeft]="stage === 2 ? '*' : 'void'"
+        [ngClass]="{
+          'border-red-500':
+            form.controls.password.invalid && form.controls.password.touched,
+          'border-green-500':
+            form.controls.password.valid && form.controls.password.touched,
+        }"
+        type="password"
+        placeholder="Enter your password"
+        formControlName="password"
+      />
+    </div>
+    <small
+      class="text-red-500"
+      *ngIf="form.controls.email.invalid && form.controls.email.touched && stage === 1"
+    >
+      <span>Please enter a valid email address</span>
+      <ul class="list-item list-inside">
+        <li *ngFor="let error of form.controls.email.errors | keyvalue">
+          <span *ngIf="error.key === 'required'">Email is required</span>
+          <span *ngIf="error.key === 'email'">Email is invalid</span>
+        </li>
+      </ul>
+    </small>
+    <small
+      class="text-red-500"
+      *ngIf="
+        form.controls.password.invalid && form.controls.password.touched && stage === 2
+      "
+    >
+      <span>Please enter a valid password</span>
+      <ul class="list-inside list-disc">
+        <li *ngFor="let error of form.controls.password.errors | keyvalue">
+          <span *ngIf="error.key === 'required'">Password is required</span>
+          <span *ngIf="error.key === 'minlength'">Password is too short</span>
+        </li>
+      </ul>
+    </small>
+    <div
+      class="mt-6 flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0"
+    >
+      <div class="cursor-pointer font-thin text-cyan-700 hover:underline">
+        Forgot Password
+      </div>
+      <button
+        class="flex w-full items-center justify-center space-x-4 rounded-md border bg-cyan-700 p-6 px-9 font-sans font-bold text-white shadow-sm shadow-cyan-100 transition duration-150 hover:-translate-y-0.5 hover:bg-opacity-90 hover:shadow-lg md:w-auto"
+        (click)="nextStage()"
+      >
+        <span *ngIf="stage === 1"
+          >Next
+          <span class="fa fa-arrow-right"></span>
+        </span>
+        <span *ngIf="stage === 2">Login</span>
+      </button>
+    </div>
+  </form>
+</ng-container>

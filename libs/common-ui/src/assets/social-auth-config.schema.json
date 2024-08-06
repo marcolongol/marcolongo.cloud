@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "object",
+  "properties": {
+    "autoLogin": {
+      "description": "Enable auto login",
+      "type": "boolean"
+    },
+    "lang": {
+      "description": "Sets the language of the social login buttons",
+      "type": "string"
+    },
+    "googleClientId": {
+      "description": "Google client ID",
+      "type": "string"
+    },
+    "googleInitOptions": {
+      "description": "Google init options",
+      "type": "object",
+      "properties": {
+        "oneTapEnabled": {
+          "description": "Enable Google One Tap",
+          "type": "boolean"
+        },
+        "scopes": {
+          "description": "Google scopes",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "prompt_parent_id": {
+          "description": "Google prompt parent ID",
+          "type": "string"
+        },
+        "prompt": {
+          "description": "Google prompt",
+          "type": "string",
+          "enum": ["", "none", "consent", "select_account"]
+        },
+        "additionalProperties": false
+      }
+    },
+    "facebookClientId": {
+      "description": "Facebook client ID",
+      "type": "string"
+    }
+  },
+  "required": ["autoLogin", "lang"],
+  "anyOf": [
+    {
+      "required": ["googleClientId"]
+    },
+    {
+      "required": ["facebookClientId"]
+    }
+  ]
+}

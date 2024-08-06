@@ -1,0 +1,29 @@
+{
+  "name": "marcolongo.cloud-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/marcolongo.cloud-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["marcolongo.cloud"],
+  "targets": {
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "configurations": {
+        "development": {
+          "tagPrefix": "marcolongo.cloud-e2e-dev",
+          "commitMessageFormat": "chore({projectName}-dev): release version {version}"
+        },
+        "production": {
+          "tagPrefix": "marcolongo.cloud-e2e-v",
+          "postTargets": ["github"]
+        },
+        "options": {
+          "preset": "conventionalcommits"
+        }
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["../**/*.spec.ts"],
+  "include": [
+    "../src/**/*.stories.ts",
+    "../src/**/*.stories.js",
+    "../src/**/*.stories.jsx",
+    "../src/**/*.stories.tsx",
+    "../src/**/*.stories.mdx",
+    "../webviewer/src/**/*.stories.ts",
+    "../webviewer/src/**/*.stories.js",
+    "../webviewer/src/**/*.stories.jsx",
+    "../webviewer/src/**/*.stories.tsx",
+    "../webviewer/src/**/*.stories.mdx",
+    "../components/src/**/*.stories.ts",
+    "../components/src/**/*.stories.js",
+    "../components/src/**/*.stories.jsx",
+    "../components/src/**/*.stories.tsx",
+    "../components/src/**/*.stories.mdx",
+    "../services/src/**/*.stories.ts",
+    "../services/src/**/*.stories.js",
+    "../services/src/**/*.stories.jsx",
+    "../services/src/**/*.stories.tsx",
+    "../services/src/**/*.stories.mdx",
+    "*.js",
+    "*.ts"
+  ]
+}

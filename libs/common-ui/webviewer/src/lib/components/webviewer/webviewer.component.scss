@@ -1,0 +1,14 @@
+:host {
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+}
+
+.viewer {
+  width: 100%;
+  height: 100%;
+}
