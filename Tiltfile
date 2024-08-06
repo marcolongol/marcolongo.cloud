@@ -68,16 +68,6 @@ local_resource(
     links=[link("http://localhost:3000", "api")],
 )
 
-
-k8s_yaml(
-    helm(
-        "./chart",
-        name="marcolongo-cloud",
-        namespace="marcolongo-cloud",
-        values=["./chart/values-dev.yaml"],
-    )
-)
-
 k8s_resource(
     "marcolongo-cloud-app",
     port_forwards=[
