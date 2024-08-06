@@ -1,7 +1,6 @@
----
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
-
-name: CI
+---
+name: main
 
 on:
   push:
@@ -21,20 +20,10 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        run: echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Connect your workspace on nx.app and uncomment this to enable task distribution.
-      # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "e2e-ci" targets have been requested
-      # - run: npx nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="e2e-ci"
-
-      # Cache node_modules
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -47,5 +36,14 @@ jobs:
       - run: git branch --track main origin/main
         if: ${{ github.event_name == 'pull_request' }}
 
-      - run: npx nx format:check
-      - run: npx nx affected -t lint stylelint test build --verbose
+      - run: npx nx format:check --verbose --parallel=3
+
+      - run: npx nx affected:lint --verbose --parallel=3
+
+      - run: npx nx run-many --verbose --target=stylelint --parallel 3
+
+      - run: npx nx affected:test --verbose --parallel=3
+
+      - run: npx nx affected:build --verbose --parallel=3
+
+      - run: npx nx affected:e2e --verbose --parallel=3

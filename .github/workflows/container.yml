@@ -1,22 +1,21 @@
----
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
-
+---
 name: 'Container'
 
 on:
-  schedule:
-    # Cron syntax:
-    # *     *     *     *     *     *
-    # ┬     ┬     ┬     ┬     ┬     ┬
-    # │     │     │     │     │     |
-    # │     │     │     │     │     └ day of week (0 - 7) (0 or 7 is Sun)
-    # │     │     │     │     └────── month (1 - 12)
-    # │     │     │     └────────── day of month (1 - 31)
-    # │     │     └─────────────── hour (0 - 23)
-    # │     └──────────────────── minute (0 - 59)
-    # └───────────────────────── second (0 - 59) #! optional
-    - cron: '35 0 * * *' # Run every day at 00:35 UTC
-    # NOTE: Github Scheduled Actions only run on the default branch!
+  # schedule:
+  # Cron syntax:
+  # *     *     *     *     *     *
+  # ┬     ┬     ┬     ┬     ┬     ┬
+  # │     │     │     │     │     |
+  # │     │     │     │     │     └ day of week (0 - 7) (0 or 7 is Sun)
+  # │     │     │     │     └────── month (1 - 12)
+  # │     │     │     └────────── day of month (1 - 31)
+  # │     │     └─────────────── hour (0 - 23)
+  # │     └──────────────────── minute (0 - 59)
+  # └───────────────────────── second (0 - 59) #! optional
+  # - cron: '35 0 * * *' # Run every day at 00:35 UTC
+  # NOTE: Github Scheduled Actions only run on the default branch!
   workflow_dispatch:
     inputs:
       configuration:
@@ -82,4 +81,3 @@ jobs:
         run: npx nx affected --target=container --verbose --configuration=${{ env.CONFIGURATION }}
         env:
           INPUT_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
