@@ -259,6 +259,16 @@
           "buildTarget": "marcolongo.cloud:build-storybook:ci"
         }
       }
+    },
+    "helm": {
+      "executor": "@nx-extensions/helm:package",
+      "outputs": ["{options.outputFolder}"],
+      "options": {
+        "chartFolder": "apps/marcolongo.cloud/chart",
+        "outputFolder": "{workspaceRoot}/dist/charts/{projectRoot}",
+        "push": false,
+        "remote": "oci://localhost:5000/helm-charts"
+      }
     }
   }
 }
