@@ -1,0 +1,9 @@
+dependencies:
+- name: marcolongo.cloud-app
+  repository: file://../apps/marcolongo.cloud/chart
+  version: 0.1.0
+- name: marcolongo.cloud-api
+  repository: file://../apps/marcolongo.cloud-api/chart
+  version: 0.1.0
+digest: sha256:04f0cb8f6eece312c747c1f8623865c1b509f1c5e29edbe10bec4b9a98263b12
+generated: "2024-08-08T01:35:17.100219-07:00"
