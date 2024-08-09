@@ -16,6 +16,10 @@ permissions:
   actions: read
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   main:
     runs-on: ubuntu-latest
@@ -40,10 +44,12 @@ jobs:
 
       - run: npx nx affected:lint --verbose --parallel=3
 
-      - run: npx nx run-many --verbose --target=stylelint --parallel 3
+      - run: npx nx affected -t stylelint --verbose --parallel 3
 
       - run: npx nx affected:test --verbose --parallel=3
 
       - run: npx nx affected:build --verbose --parallel=3
+
+      - run: npx nx affected -t helm --verbose --parallel=3
 
       - run: npx nx affected:e2e --verbose --parallel=3
