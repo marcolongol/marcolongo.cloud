@@ -4,5 +4,10 @@
   "projectType": "application",
   "sourceRoot": "apps/marcolongo.cloud-e2e/src",
   "tags": [],
-  "implicitDependencies": ["marcolongo.cloud"]
+  "implicitDependencies": ["marcolongo.cloud"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
 }
