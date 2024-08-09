@@ -148,7 +148,7 @@
             "type=ref,event=tag",
             "type=ref,event=pr",
             "type=raw,value=production",
-            "type=match,pattern=marcolongo.cloud-(.*),group=1",
+            "type=match,pattern=marcolongo.cloud@(.*),group=1",
             "type=semver,pattern={{version}}",
             "type=semver,pattern={{major}}.{{minor}}",
             "type=semver,pattern={{major}}",
