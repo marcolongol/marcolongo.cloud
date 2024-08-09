@@ -4,6 +4,9 @@
   "projectType": "application",
   "implicitDependencies": ["marcolongo.cloud-api"],
   "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
     "e2e": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],

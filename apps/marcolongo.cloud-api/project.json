@@ -79,6 +79,9 @@
         }
       }
     },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
     "helm": {
       "executor": "@nx-extensions/helm:package",
       "outputs": ["{options.outputFolder}"],
