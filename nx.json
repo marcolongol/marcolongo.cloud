@@ -87,9 +87,9 @@
     {
       "plugin": "@nx/webpack/plugin",
       "options": {
-        "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview"
+        "buildTargetName": "webpack:build",
+        "serveTargetName": "webpack:serve",
+        "previewTargetName": "webpack:preview"
       }
     }
   ],
@@ -123,11 +123,11 @@
     "projectsRelationship": "independent",
     "version": {
       "preVersionCommand": "npx nx run-many -t build",
-      "conventionalCommits": true
-    },
-    "git": {
-      "commit": true,
-      "commitArgs": "--no-verify"
+      "conventionalCommits": true,
+      "git": {
+        "commit": true,
+        "commitArgs": "--no-verify"
+      }
     },
     "changelog": {
       "automaticFromRef": true,
