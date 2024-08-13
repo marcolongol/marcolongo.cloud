@@ -5,5 +5,5 @@
 .angular
 /chart
 **/CHANGELOG.md
-/apps/marcolongo.cloud/chart/*
-/apps/marcolongo.cloud-api/chart/*
+/apps/app/chart/*
+/apps/api/chart/*
