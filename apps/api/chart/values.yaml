@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: api
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ''
@@ -43,7 +43,7 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 3000
 
 ingress:
   enabled: false
@@ -77,12 +77,12 @@ resources:
 
 livenessProbe:
   httpGet:
-    path: /
-    port: http
+    path: /api
+    port: api
 readinessProbe:
   httpGet:
-    path: /
-    port: http
+    path: /api
+    port: api
 
 autoscaling:
   enabled: false
@@ -110,11 +110,5 @@ tolerations: []
 
 affinity: {}
 
-app:
-  enabled: true
-
-  api:
-    enabled: true
-
-    postgresql:
-      enabled: true
+postgresql:
+  enabled: false

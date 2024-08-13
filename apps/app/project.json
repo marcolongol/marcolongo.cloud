@@ -1,0 +1,276 @@
+{
+  "name": "app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/app/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "dependsOn": [
+        {
+          "projects": ["common-ui"],
+          "target": "build"
+        }
+      ],
+      "options": {
+        "outputPath": "dist/apps/app",
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/common-ui/src/styles"]
+        },
+        "index": "apps/app/src/index.html",
+        "browser": "apps/app/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/app/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "allowedCommonJsDependencies": ["@pdftron/webviewer"],
+        "assets": [
+          "apps/app/src/assets",
+          {
+            "input": "./libs/common-ui/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
+          },
+          {
+            "input": "./libs/common-ui/webviewer/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
+          }
+        ],
+        "styles": ["apps/app/src/styles.scss"],
+        "scripts": [
+          {
+            "input": "./libs/common-ui/webviewer/src/assets/webviewer/webviewer.min.js"
+          }
+        ]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "apps/app/src/environments/environment.ts",
+              "with": "apps/app/src/environments/environment.production.ts"
+            }
+          ]
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "namedChunks": true,
+          "progress": true,
+          "sourceMap": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/app/src/environments/environment.ts",
+              "with": "apps/app/src/environments/environment.development.ts"
+            }
+          ]
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "proxyConfig": "apps/app/proxy.conf.json",
+        "verbose": true
+      },
+      "dependsOn": [
+        {
+          "projects": ["common-ui"],
+          "target": "build"
+        }
+      ],
+      "configurations": {
+        "production": {
+          "buildTarget": "app:build:production"
+        },
+        "development": {
+          "hmr": true,
+          "buildTarget": "app:build:development",
+          "host": "0.0.0.0",
+          "allowedHosts": ["*"]
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "app:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/app/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "app:build",
+        "port": 4200,
+        "staticFilePath": "dist/apps/app/browser",
+        "spa": true
+      }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "dependsOn": ["build"],
+      "options": {
+        "engine": "docker",
+        "push": true,
+        "metadata": {
+          "images": ["ghcr.io/marcolongol/app"],
+          "tags": [
+            "type=schedule",
+            "type=ref,event=branch",
+            "type=ref,event=tag",
+            "type=ref,event=pr",
+            "type=raw,value=production",
+            "type=match,pattern=app@(.*),group=1",
+            "type=semver,pattern={{version}}",
+            "type=semver,pattern={{major}}.{{minor}}",
+            "type=semver,pattern={{major}}",
+            "type=sha"
+          ],
+          "labels": [
+            "org.opencontainers.image.title=app",
+            "org.opencontainers.image.description=app",
+            "org.opencontainers.image.url=https://github.com/marcolongol/marcolongo.cloud",
+            "org.opencontainers.image.source=https://github.com/marcolongol/marcolongo.cloud",
+            "org.opencontainers.image.vendor=marcolongol",
+            "org.opencontainers.image.licenses=MIT"
+          ]
+        }
+      },
+      "configurations": {
+        "development": {
+          "metadata": {
+            "images": ["ghcr.io/marcolongol/app"],
+            "tags": ["type=raw,value=development", "type=schedule", "type=sha"]
+          }
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/app/**/*.css", "apps/app/**/*.scss"]
+      }
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "apps/app/.storybook",
+        "browserTarget": "app:build",
+        "compodoc": false,
+        "assets": [
+          "apps/app/src/assets",
+          {
+            "input": "./libs/common-ui/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
+          },
+          {
+            "input": "./libs/common-ui/webviewer/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
+          }
+        ]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/app",
+        "configDir": "apps/app/.storybook",
+        "browserTarget": "app:build",
+        "debugWebpack": true,
+        "loglevel": "verbose",
+        "compodoc": false,
+        "assets": [
+          "apps/app/src/assets",
+          {
+            "input": "./libs/common-ui/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
+          },
+          {
+            "input": "./libs/common-ui/webviewer/src/assets",
+            "glob": "**/*",
+            "output": "/assets"
+          }
+        ]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "test-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "test-storybook -c apps/app/.storybook --url=http://localhost:4400"
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "app:build-storybook",
+        "staticFilePath": "dist/storybook/app",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "app:build-storybook:ci"
+        }
+      }
+    },
+    "helm": {
+      "executor": "@nx-extensions/helm:package",
+      "outputs": ["{options.outputFolder}"],
+      "options": {
+        "chartFolder": "apps/app/chart",
+        "outputFolder": "{workspaceRoot}/dist/charts/{projectRoot}",
+        "push": false,
+        "remote": "oci://localhost:5000/helm-charts",
+        "dependencies": {
+          "update": true,
+          "build": true,
+          "repositories": []
+        }
+      }
+    }
+  }
+}

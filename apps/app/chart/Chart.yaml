@@ -1,11 +1,11 @@
 apiVersion: v2
-name: marcolongo-cloud
+name: app
 description: A Helm chart for Kubernetes
 type: application
 version: 0.1.0
 appVersion: '1.16.0'
 dependencies:
-  - name: app
-    condition: app.enabled
-    repository: file://../apps/app/chart
+  - name: api
+    condition: api.enabled
     version: 0.1.0
+    repository: 'file://../../api/chart'
