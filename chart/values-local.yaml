@@ -1,0 +1,8 @@
+app:
+  enabled: true
+
+  api:
+    enabled: true
+
+    postgresql:
+      enabled: true
