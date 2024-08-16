@@ -17,6 +17,8 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/package.json ./package.json
 COPY dist/apps/api/ .
+RUN npx prisma generate
+RUN chown -R node:node /app
 USER node
 EXPOSE 3000
 CMD ["nodemon", "main.js"]
@@ -30,6 +32,8 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/package.json ./package.json
 COPY dist/apps/api .
+RUN chown -R node:node /app
+RUN npx prisma generate
 USER node
 EXPOSE 3000
 CMD ["dumb-init", "node", "main.js"]

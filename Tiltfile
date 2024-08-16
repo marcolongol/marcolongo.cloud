@@ -7,6 +7,16 @@ print(
 """.strip()
 )
 
+config.define_string("env", False, "The environment to deploy to")
+
+VALUES_DICT = {
+    "LOCAL": "./chart/values-local.yaml",
+    "DEV": "./chart/values-dev.yaml",
+    "STAGING": "./chart/values-staging.yaml",
+    "PROD": "/chart/./values-prod.yaml",
+}
+
+cfg = config.parse()
 
 # SECTION: APP
 # ---
@@ -30,7 +40,10 @@ local_resource(
     labels=["app"],
     trigger_mode=TRIGGER_MODE_AUTO,
     auto_init=False,
-    links=[link("http://localhost:4200", "web")],
+    links=[
+        link("http://localhost:4200", "app"),
+        link("http://localhost:4200/api", "api"),
+    ],
 )
 
 local_resource(
@@ -69,17 +82,25 @@ local_resource(
     labels=["api"],
     trigger_mode=TRIGGER_MODE_AUTO,
     auto_init=False,
-    links=[link("http://localhost:3000", "api")],
+    links=[link("http://localhost:3000/api", "api")],
 )
 
 # SECTION: K8s
 # ---
-k8s_yaml(helm("./chart", "marcolongo-cloud", "marcolongo-cloud", "./chart/values.yaml"))
+k8s_yaml(
+    helm(
+        "./chart",
+        "marcolongo-cloud",
+        "marcolongo-cloud",
+        values=VALUES_DICT[cfg.get("env", "LOCAL")],
+    )
+)
 
 k8s_resource(
     "marcolongo-cloud-app",
     port_forwards=[
-        port_forward(80, name="web"),
+        port_forward(80, name="app"),
+        port_forward(80, name="api", link_path="/api"),
     ],
     labels=["app"],
     auto_init=False,
