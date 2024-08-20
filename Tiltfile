@@ -100,7 +100,6 @@ k8s_resource(
     "marcolongo-cloud-app",
     port_forwards=[
         port_forward(80, name="app"),
-        port_forward(80, name="api", link_path="/api"),
     ],
     labels=["app"],
     auto_init=False,
