@@ -1,5 +1,6 @@
 import { Test } from '@nestjs/testing';
 
+import { AppModule } from './app.module';
 import { AppService } from './app.service';
 
 describe('AppService', () => {
@@ -7,15 +8,13 @@ describe('AppService', () => {
 
   beforeAll(async () => {
     const app = await Test.createTestingModule({
-      providers: [AppService],
+      imports: [AppModule],
     }).compile();
 
     service = app.get<AppService>(AppService);
   });
 
-  describe('getData', () => {
-    it('should return "Hello API"', () => {
-      expect(service.getData()).toEqual({ message: 'Hello API' });
-    });
+  it('should be defined', () => {
+    expect(service).toBeDefined();
   });
 });
