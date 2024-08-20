@@ -1,5 +1,20 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["metrics"]
+}
+
+generator nestjsDto {
+  provider = "prisma-generator-nestjs-dto"
+  output = "../src/app/modules"
+  outputToNestJsResourceStructure = "true"
+  exportRelationModifierClasses   = "true"
+  reExport                        = "true"
+  createDtoPrefix                 = "Create"
+  updateDtoPrefix                 = "Update"
+  dtoSuffix                       = "Dto"
+  entityPrefix                    = ""
+  entitySuffix                    = ""
+  fileNamingStyle                 = "camel"
 }
 
 datasource db {
