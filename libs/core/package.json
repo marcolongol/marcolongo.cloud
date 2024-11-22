@@ -6,7 +6,7 @@
     "@angular/common": "~18.1.0 || ~18.2.0",
     "@angular/core": "^17.3.0 || ^18.0.0",
     "@angular/router": "~17.3.0 || ~18.0.0 || ~18.1.0 || ~18.2.0",
-    "@nx/angular": "19.8.11",
+    "@nx/angular": "19.8.12",
     "rxjs": "~7.8.0",
     "tailwindcss": "^3.0.2"
   },
