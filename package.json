@@ -114,7 +114,7 @@
     "jest-environment-node": "^29.4.1",
     "jest-preset-angular": "~14.5.0",
     "jsonc-eslint-parser": "^2.1.0",
-    "ng-packagr": "~18.2.0",
+    "ng-packagr": "~19.1.0",
     "nx": "20.4.0",
     "nx-stylelint": "^18.0.0",
     "postcss": "^8.4.5",
