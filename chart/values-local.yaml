@@ -6,3 +6,5 @@ app:
 
     postgresql:
       enabled: true
+      auth:
+        password: "passwordIsTaco"
