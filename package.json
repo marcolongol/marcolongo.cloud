@@ -78,7 +78,7 @@
     "@storybook/angular": "^8.0.0",
     "@storybook/core-server": "^8.0.0",
     "@storybook/jest": "^0.2.3",
-    "@storybook/test-runner": "^0.21.0",
+    "@storybook/test-runner": "^0.22.0",
     "@storybook/testing-library": "^0.2.2",
     "@swc-node/register": "~1.10.0",
     "@swc/core": "~1.11.0",
