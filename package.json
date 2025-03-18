@@ -98,7 +98,7 @@
     "cypress": "^13.6.6",
     "eslint": "~8.57.0",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-import-resolver-typescript": "^4.0.0",
     "eslint-plugin-cypress": "^3.0.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-nestjs": "^1.2.3",
